@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects In Js</title>
+    <style>
+        *{
+            background-color:rgb(68, 207, 200);
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        hr{
+            border: 1px dashed black;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:chartreuse;
+        }
+        h1:hover{
+            background-color: black;
+            color: chartreuse;
+        }
+        p{
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch C / Part I : OBJECTS in JS
+        </h1>
+    </header>
+    <hr>
+    <main>
+
+        <h2>
+            What is an "OBJECT" ?
+        </h2>
+        <p>
+            In JavaScript, an object is a data structure used to store multiple values in one variable, using 'key–value' pairs.
+        </p>
+        <br>
+        <h2>
+            How "OBJECT" looks like ?
+        </h2>
+        <p>
+            let Person = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name: "Rahul",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;age: 20,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;'is-Student': true<br>
+            };
+        </p>
+        <br>
+        <h2>
+            Dot Notation :
+        </h2>
+        <p>
+            Use . operator to access values : Person.age
+        </p>
+        <br>
+        <h2>
+            Bracket Notation : 
+        </h2>
+        <p>
+            Another way to access values is : Person['is-Student']
+        </p>
+        <br>
+        <h2>
+            Key Benefit :
+        </h2>
+        <p>
+            Organizes related data under a single name.
+        </p>
+        <br>
+        <h2>
+            How to delete key-val pair in Objects ?
+        </h2>
+        <p>
+            Using `delete` keyword : delete Person.age
+        </p>
+        <br>
+        <h2>
+            How to delete Entire Object ?
+        </h2>
+        <p>
+            JavaScript doesn’t have a direct “destroy object” command.
+            <br>
+            Instead, you remove its reference . 
+            <br>
+            let person = {
+                name: "Rahul"
+            };
+            <br>
+            Do this : person = null;
+        </p>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        let Person = {
+            name: "Rahul",
+            age: 20,
+            'is-Student': true
+        };
+        console.log('Object "Person" : ');
+        console.log(Person);
+        //accessing elements : 
+        console.log(Person['is-Student']);
+        console.log(Person.age);
+
+        // ----------------------------------------------------
+
+        let Product = {
+            item:'Mango',
+            Company:"ITC",
+            price:50.00,
+            rating:{
+                stars:4.2,
+                totalReviews : 498,
+            },          //Nested Object
+
+            displayPrice_Company : function(){
+                console.log(`Price is ${this.price} . Company : ${this.Company}`);
+            },          //function in an Object = METHOD 
+
+        };
+
+        Product.displayPrice_Company();
+
+    </script>
+</body>
+</html>

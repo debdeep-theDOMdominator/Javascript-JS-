@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J3 this keyword Practice</title>
+    <style>
+        /* =========================
+            Global Styling
+        ========================= */
+
+        *{
+            background-color:#202c39; /* Jet Black */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#f2d492; /* Soft Peach */
+            scroll-behavior:smooth;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+        Body
+        ========================= */
+
+        body{
+            margin:20px;
+
+            background:linear-gradient(
+                180deg,
+                #202c39,
+                #283845,
+                #202c39
+            );
+        }
+
+        /* =========================
+        Divider
+        ========================= */
+
+        hr{
+            border:2.5px dashed #f29559; /* Tangerine Dream */
+            /* margin:25px 0; */
+        }
+
+        /* =========================
+        Main Heading
+        ========================= */
+
+        h1{
+            /* Soft Peach */
+            text-align:right;
+
+            padding:18px;
+
+            border:2px solid #f29559;
+
+            border-radius:22px;
+
+            background:linear-gradient(
+                135deg,
+                #f29559,
+                #f2d492,
+                #f29559
+            );
+
+            color:#202c39;
+
+            transition:0.4s ease;
+
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.5),
+                0 0 10px rgba(242,149,89,0.25);
+        }
+
+        /* Hover Effect */
+
+        h1:hover{
+            transform:scale(1.015);
+
+            color:#f2d492;
+            background:linear-gradient(
+                135deg,
+                #283845,
+                #202c39,
+                #283845
+            );
+            
+        }
+
+        /* =========================
+        Section Headings
+        ========================= */
+
+        h2{
+            color:#f29559;
+
+            font-size:36px;
+
+            text-align:center;
+
+            margin-top:40px;
+
+            text-shadow:
+                0 0 10px rgba(242,149,89,0.4);
+        }
+
+        h3{
+            color: white;
+            font-size: 25px;
+            text-align: right;
+            text-shadow:0 0 10px rgba(242,149,89,0.4);
+        }
+
+        /* =========================
+        Paragraphs
+        ========================= */
+
+        p{
+            font-size:22px;
+
+            line-height:1.9;
+
+            padding:20px;
+
+            margin:20px 0;
+
+            border-left:7px solid #f29559;
+
+            border-radius:14px;
+
+            background-color:#283845;
+
+            color:#f2d492;
+
+            box-shadow:
+                0 5px 14px rgba(0,0,0,0.4);
+
+            transition:0.35s ease;
+        }
+
+        /* Hover */
+
+        p:hover{
+            transform:translateY(-4px);
+
+            background-color:#202c39;
+
+            border-left:7px solid #f2d492;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch J / Part III : "this keyword PRACTICE" using JS
+        </h1>
+    </header>
+    <br>
+    <hr>
+    <br>
+    <main>
+        <h3>
+            This is a h2 tag . Click it for Event listner
+        </h3>
+        <br>
+        <br>
+        <h2>
+            Arrow functions do not bind their own this; they lexically inherit this from the enclosing ES5/normal function.
+        </h2>
+    </main>
+
+
+    <script>
+        /*
+          DIFFERENT VALUES OF 'this' AT DIFFERENT LOCATIONS -
+          ---------------------------------------------------------------
+
+            1. inside global                            : window
+            2. inside FUNCTION                          : window 
+            3. inside method with `es5 FUNCTION`        : object
+            4. inside method with `es6 ARROW FUNCTION`  : window
+            5. `es5 FUNCTION` inside `es5 FUNCTION`     : window
+            6.`ARROW FUNCTION` inside `es5 FUNCTION`    : object
+            7. inside EVENT HANDLER                     : element
+            8. inside `CLASS`                           : blank object
+        */
+
+        //lets check its values : 
+
+            // 1. inside global
+            console.log(this);
+
+            // 2. inside FUNCTION 
+            function SayGod(){
+                console.log(this);
+            }
+
+            SayGod();
+
+            // 3. inside method with `es5 FUNCTION`
+            let obj01 = {
+                name : "Rick",
+                age : 18,
+                output : function(){
+                    console.log(this);
+                },
+            };
+            obj01.output();
+
+            // 4. inside method with `es6 ARROW FUNCTION`  : window
+            let obj02 = {
+                fruit : "mango",
+                season : "summer",
+                sayFavFruit : () => {
+                    console.log(this);
+                }
+            }
+            obj02.sayFavFruit();
+            /*
+                >>>> arrow function does not have its own this
+            */
+
+            // 5. `es5 FUNCTION` inside `es5 FUNCTION`     : window 
+                function Greet01(){
+                    let a = 5;
+                    function Greet02(){
+                        console.log(this);
+                    };
+                    Greet02();
+                };
+                Greet01();
+        
+            // 6.`ARROW FUNCTION` inside `es5 FUNCTION`    : object
+                function outer() {
+                    const inner = () => {
+                        console.log(this);
+                    };
+                    inner();
+                };
+                outer();
+                /*
+                    >>>> outer() is a normal ES5 function
+                    >>>> normal function call → this = window
+                    >>>> arrow function does not have its own this
+                    >>>> it inherits this from outer
+                */
+
+            // 7. inside EVENT HANDLER      : element
+               let h3 = document.querySelector("h3");
+               h3.addEventListener("click",function(evt){
+                console.log(this);
+               });
+
+            // 8. inside `CLASS`            : blank object 
+                // exp 1 -
+                class User{
+                constructor(name){
+                    this.UserName = name ;
+                };
+                showName(){
+                    console.log(this.UserName);
+                };
+               };
+
+               let U1 = new User("DSG");
+               U1.showName();
+
+                // exp 2 -
+                class Counter{
+                    constructor(){
+                        this.count=0;
+                    };
+                    increment(){
+                        this.count++;
+                        this.showCount();
+                    }
+                    showCount(){
+                        console.log(this.count);
+                    };
+                };
+
+                let C1 = new Counter();
+                C1.increment();
+                C1.increment();
+                C1.increment();
+                let C2 = new Counter();
+                C2.increment();
+                C2.increment();
+
+    </script>
+</body>
+</html>

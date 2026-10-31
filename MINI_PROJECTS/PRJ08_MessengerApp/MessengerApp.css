@@ -1,0 +1,221 @@
+*{
+            
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            /*color:#ffefd3;  Papaya Whip */
+            scroll-behavior:smooth;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+        Body
+        ========================= */
+
+        body{
+            /* margin:20px; */
+            background-color:#bfd4e2; /* Prussian Blue */
+            /* background:linear-gradient(
+                180deg,
+                #001b2e,
+                #294c60,
+                #001b2e
+            ); */
+        }
+
+        /* =========================
+        Divider
+        ========================= */
+
+        hr{
+            border:2.5px dashed #ffc49b; /* Peach Glow */
+        }
+
+        /* =========================
+        Main Heading
+        ========================= */
+
+        h1{
+            text-align:right;
+
+            padding:18px;
+
+            border:2px solid #ffc49b;
+
+            border-radius:22px;
+
+            background:linear-gradient(
+                135deg,
+                #ffc49b,
+                #ffefd3,
+                #ffc49b
+            );
+
+            color:#001b2e;
+
+            transition:0.4s ease;
+
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.5),
+                0 0 10px rgba(255,196,155,0.25);
+        }
+
+        /* Hover Effect */
+
+        h1:hover{
+            transform:scale(1.015);
+
+            color:#ffefd3;
+
+            background:linear-gradient(
+                135deg,
+                #294c60,
+                #001b2e,
+                #294c60
+            );
+        }
+
+        header{
+            height: 65px;
+
+            background-color: #001b2e;
+            font-size: 25px;
+
+            border:4px solid #ffc49b;
+            border-radius: 15px;
+            padding: 5px 45px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            color: white;
+        }
+
+        header nav a{
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Msg : */
+        .MsgContainer{
+            height: 85vh;
+            width : 99vw;
+
+            background-color: #001b2e;
+
+            border:4px solid #ffc49b;
+            border-radius: 45px;
+
+            padding: 25px;
+
+
+        }
+
+        .WelcomeMsgShower{
+            padding: 2px;
+            margin: 5px 5px 10px 5px;
+
+            border:2px solid #ffc49b;
+            border-radius:22px;
+
+            background:#bfd4e2;
+
+            /* height: 15px; */
+
+            text-align: center;
+        }
+
+        .MsgBox{
+            height: 50vh;
+            overflow-y: auto;
+
+            padding: 2px;
+            margin: 10px 5px;
+
+            border:2px solid #ffc49b;
+            border-radius:22px;
+
+            background:#bfd4e2;
+        }
+
+        .Messages{
+            padding: 5px 15px;
+            margin: 5px;
+        }
+        .Messages h2{
+            padding: 5px 15px;
+            margin: 5px;
+        }
+
+        .MsgSendingBox{
+            height: 11vh;
+            padding: 2px;
+            margin: 10px 5px;
+
+            border:2px solid #ffc49b;
+            border-radius:22px;
+
+            background:#ffc49b;
+
+            display: flex;
+            justify-content: center;
+            /* flex-direction: row; */
+            /* flex-wrap: wrap; */
+        }
+
+
+        .UserMsgBox{
+            height: 55px;
+            width: 90vw;
+
+            padding: 0px 15px;
+            margin: 2px 15px;
+            border:2px solid #ffc49b;
+            border-radius:22px;
+
+            color: white;
+            background-color: #001b2e;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .UserMsgBox label{
+            font-size: 20px;
+        }
+
+        /* .UserMsgBox p{
+            font-family: "Tinos", serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 25px;
+        } */
+
+        #MsgInput_User01,
+        #MsgInput_User02{
+            font-family: "Tinos", serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 25px;
+
+            border-radius: 15px;
+
+            width: 30vw;
+            margin: 5px;
+
+            padding:5px 25px;
+        }
+    
+
+        /* #User01MsgSendingBox{
+
+        }
+        #User02MsgSendingBox{
+
+        } */
+
+
+        .fa-paper-plane{
+            font-size: 28px;
+        }

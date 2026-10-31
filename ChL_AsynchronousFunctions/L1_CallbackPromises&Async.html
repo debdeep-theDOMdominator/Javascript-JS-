@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./L_ChapterL_CSS_File.css">
+    <title>L1  Callback , Promises & Async In JS</title>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch L / Part I : " Callback , Promises & Async " in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>Introduction to Asynchronous JavaScript</h2>
+
+        <p>
+            JavaScript can execute code in two ways:<br><br>
+
+            <b>1. Synchronous</b><br>
+            Code runs line-by-line.<br>
+            One task must finish before the next starts.<br><br>
+
+            <b>2. Asynchronous</b><br>
+            Some tasks run later without blocking other code.<br><br>
+
+            <b>Example:</b><br>
+            setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Executed Later");<br>
+            },2000);<br><br>
+
+            Here, JavaScript continues running other code while waiting 2 seconds.
+        </p><br>
+
+
+        <h2>Synchronous vs Asynchronous JS</h2>
+
+        <p>
+            <b>Synchronous JavaScript</b><br>
+            • Executes one line at a time<br>
+            • Blocking behavior<br>
+            • Simple but can freeze execution<br><br>
+
+            <b>Example:</b><br>
+            console.log("A");<br>
+            console.log("B");<br>
+            console.log("C");<br><br>
+
+            Output:<br>
+            A → B → C<br><br>
+
+
+            <b>Asynchronous JavaScript</b><br>
+            • Non-blocking behavior<br>
+            • Delayed tasks run later<br>
+            • Improves performance<br><br>
+
+            <b>Example:</b><br>
+            console.log("Start");<br><br>
+
+            setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Inside Timeout");<br>
+            },2000);<br><br>
+
+            console.log("End");<br><br>
+
+            Output:<br>
+            Start<br>
+            End<br>
+            Inside Timeout
+        </p><br>
+
+
+        <h2>What are Callbacks?</h2>
+
+        <p>
+            A Callback is a function passed into another function as an argument.<br><br>
+
+            The callback runs later when needed.<br><br>
+
+            <b>Syntax:</b><br>
+            function mainFunction(callback){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;callback();<br>
+            }<br><br>
+
+            <b>Example:</b><br>
+            function greet(name,callback){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello " + name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;callback();<br>
+            }<br><br>
+
+            function bye(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Bye");<br>
+            }<br><br>
+
+            greet("Sam",bye);
+        </p><br>
+
+
+        <h2>Callback Hell</h2>
+
+        <p>
+            Callback Hell happens when many nested callbacks make code difficult to read and manage.<br><br>
+
+            This creates deeply nested code structures.<br><br>
+
+            <b>Example:</b><br>
+            setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Step 1");<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Step 2");<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Step 3");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},1000);<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;},1000);<br><br>
+
+            },1000);<br><br>
+
+            This is hard to maintain and debug.
+        </p><br>
+
+
+        <h2>What are Promises?</h2>
+
+        <p>
+            Promises are objects used to handle asynchronous operations more cleanly.<br><br>
+
+            A Promise represents a future result.<br><br>
+
+            Promise has 3 states:<br>
+            • Pending<br>
+            • Resolved (Fulfilled)<br>
+            • Rejected<br><br>
+
+            <b>Syntax:</b><br>
+            let promise = new Promise(function(resolve,reject){<br>
+
+            });<br><br>
+
+            <b>Example:</b><br>
+            let myPromise = new Promise(function(resolve,reject){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let success = true;<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;if(success){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve("Task Completed");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;else{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reject("Task Failed");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            });
+        </p><br>
+
+
+        <h2>Using then() and catch()</h2>
+
+        <p>
+            <b>then()</b><br>
+            Executes when promise resolves.<br><br>
+
+            <b>catch()</b><br>
+            Executes when promise rejects.<br><br>
+
+            <b>Example:</b><br>
+            myPromise.then(function(result){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(result);<br>
+            })<br>
+            .catch(function(error){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(error);<br>
+            });
+        </p><br>
+
+
+        <h2>Promise Chaining</h2>
+
+        <p>
+            Multiple asynchronous operations can be chained together.<br><br>
+
+            <b>Example:</b><br>
+            fetchData()<br>
+            .then(function(result){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return processData(result);<br>
+            })<br>
+            .then(function(finalResult){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(finalResult);<br>
+            })<br>
+            .catch(function(error){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(error);<br>
+            });
+        </p><br>
+
+
+        <h2>What is async?</h2>
+
+        <p>
+            The <b>async</b> keyword makes a function asynchronous.<br><br>
+
+            Async functions always return a Promise.<br><br>
+
+            <b>Syntax:</b><br>
+            async function functionName(){<br>
+
+            }<br><br>
+
+            <b>Example:</b><br>
+            async function hello(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return "Hello";<br>
+            }<br><br>
+
+            hello().then(function(result){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(result);<br>
+            });
+        </p><br>
+
+
+        <h2>What is await?</h2>
+
+        <p>
+            The <b>await</b> keyword pauses execution until a Promise completes.<br><br>
+
+            await can only be used inside async functions.<br><br>
+
+            <b>Example:</b><br>
+            async function getData(){<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;let result = await fetchData();<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(result);<br>
+            }
+        </p><br>
+
+
+        <h2>Async/Await with try...catch</h2>
+
+        <p>
+            Errors in async functions are handled using try...catch.<br><br>
+
+            <b>Example:</b><br>
+            async function loadData(){<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;try{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let result = await fetchData();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(result);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;catch(error){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(error);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            }
+        </p><br>
+
+
+        <h2>Important Confusions</h2>
+
+        <p>
+            <b>1. Async functions always return Promises</b><br><br>
+
+            Even if you return a normal value, JavaScript wraps it inside a Promise.<br><br>
+
+            <b>2. Mixing async/await with then()</b><br><br>
+
+            Avoid mixing both styles unnecessarily.<br><br>
+
+            Choose one style for cleaner code.
+        </p><br>
+
+
+        <h2>Mindset for Async JavaScript</h2>
+
+        <p>
+            Async is not magic.<br><br>
+
+            It simply allows JavaScript to wait for long operations without freezing the entire program.<br><br>
+
+            JavaScript continues running other tasks while waiting.
+        </p><br>
+
+
+        <h2>Real World Use Cases</h2>
+
+        <p>
+            Async JavaScript is heavily used for:<br><br>
+
+            • API Calls<br>
+            • Database Requests<br>
+            • Authentication Systems<br>
+            • File Uploads<br>
+            • Timers<br>
+            • Chat Applications<br>
+            • Live Notifications<br>
+            • Fetching User Data
+        </p><br>
+
+
+        <h2>Easy Memory Trick</h2>
+
+        <p>
+            <b>Callback</b><br>
+            "Run this function later"<br><br>
+
+            <b>Promise</b><br>
+            "I promise to give result later"<br><br>
+
+            <b>async/await</b><br>
+            "Wait here until task finishes"
+        </p><br>
+
+    </main>
+    
+</body>
+</html>

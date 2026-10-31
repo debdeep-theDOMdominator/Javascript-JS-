@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling Practice 01</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+
+        }
+        body{
+            margin: 50px;
+            background-color: gray;
+        }
+        ul{
+            background-color: rgb(64, 63, 63);
+            padding: 45px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 25px;
+            color: white;
+            list-style-type:square;
+        }
+        li{
+            margin: 10px;
+            padding: 25px;
+            border: 1px dashed wheat;
+        }
+        li:hover{
+            background-color: black;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        
+        /* new class : li_decor */
+        .li_decor{
+            text-decoration: line-through;
+            color: rgb(217, 36, 36);
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="content">
+            <ul class="FruitsList">
+                <li>Apple</li>
+                <li>Guava</li>
+                <li>Mango</li>
+                <li>Banana</li>
+                <li>Watermelon</li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        let ul_FruitsList = document.querySelector(".FruitsList");
+        // let li = document.querySelectorAll("li");
+
+
+        console.log(ul_FruitsList);
+
+        ul_FruitsList.addEventListener("click",function(dets){
+            console.log(dets);
+            console.log(dets.target);
+            // dets.target.style.textDecoration = "line-through" ;
+            // dets.target.style.color = "rgb(217, 36, 36)";
+            dets.target.classList.toggle("li_decor");
+        });
+
+
+    </script>
+</body>
+</html>

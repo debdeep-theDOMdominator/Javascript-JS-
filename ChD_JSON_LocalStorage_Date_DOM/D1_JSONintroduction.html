@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D1 JSON Introduction</title>
+    <style>
+        *{
+            background-color:black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color: aliceblue;
+            
+        }
+        hr{
+            border: 2.5px dashed gray;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:rgb(24, 130, 156);
+            transition: 0.5s;
+        }
+        h1:hover{
+            background-color: aliceblue;
+            color: black;
+        }
+        p{
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch D / Part I : "JSON" in JS
+        </h1>
+    </header>
+    <hr>
+    <main>
+
+        <h2>
+            What is JSON ?
+        </h2>
+        <p>
+            JSON (JavaScript Object Notation) is a data format. It looks similar to JavaScript objects but is not the same.
+        </p>
+        <br>
+
+        <h2>
+            Key Difference :
+        </h2>
+        <p>
+            JSON is a data format, whereas a JavaScript object is a data structure used in code.
+        </p>
+        <br>
+
+        <h2>
+            Where is JSON used ?
+        </h2>
+        <p>
+            JSON is commonly used in network calls (APIs) and data storage because it is easy to send and receive.
+        </p>
+        <br>
+
+        <h2>
+            Why JSON ?
+        </h2>
+        <p>
+            Strings are easy to transport over networks, so JSON converts data into string format.
+        </p>
+        <br>
+
+        <h2>
+            JSON Rules :
+        </h2>
+        <p>
+            JSON requires double quotes for keys and values.<br>
+            Example: { "name": "Rahul" }<br>
+            Double quotes inside JSON are escaped using \".
+        </p>
+        <br>
+
+        <h2>
+            JSON Methods :
+        </h2>
+        <p>
+            JSON.stringify() → Converts JavaScript object into JSON string.<br>
+            JSON.parse() → Converts JSON string back into JavaScript object.
+        </p>
+        <br>
+
+        <h2>
+            Example :
+        </h2>
+        <p>
+            let obj = { name: "Rahul", age: 20 };<br><br>
+
+            let jsonData = JSON.stringify(obj);<br>
+            console.log(jsonData);<br><br>
+
+            let backToObj = JSON.parse(jsonData);<br>
+            console.log(backToObj.name);
+        </p>
+        <br>
+
+        <h2>
+            Important Note :
+        </h2>
+        <p>
+            JSON is only for data exchange, while JavaScript objects can also contain functions and logic.
+        </p>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        //OBJECT : 
+
+        let obj1={
+            age:21,
+            Month:'May',
+        }
+        console.log(`obj1 = `);
+        console.log(obj1);
+        console.log(typeof obj1);
+
+        let obj2 = {
+            "scale" : "Celcius",
+            "symbol" : "°C",
+            "highestTempRecorded" : 45,
+            "place" : 'kolkata',
+            "Recorded" : "2026-04-25T10:30:00Z",
+        };
+
+        //Converting JS Object's value to a String : 
+
+        let str = JSON.stringify(obj1.Month);
+        console.log(`str = ${str} , type is = ${typeof str}`);
+
+        //converting JS OBJECT to JSON :
+
+        let jsonData1 = JSON.stringify(obj1);
+        console.log(`jsonData1 = `);
+        console.log(jsonData1);
+        console.log(`type of json1 is : ${typeof jsonData1}`);
+
+
+        //Coverting JSON to JS OBJECT:
+
+        let obj3 = JSON.parse(jsonData1);
+        console.log("obj3 = ");
+        console.log(obj3);
+        console.log(`type of obj3 = ${typeof obj3}`);
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRJ02_BatBallStumpGame</title>
+    <link rel="stylesheet" href="../PRJ02_BatBallStumpGame/BatBallStumpGame.css">
+</head>
+<body>
+    
+    <header>
+
+    </header>
+
+    <main>
+
+        <div class="game">
+
+            <h2>Bat Ball Stump Game</h2>
+
+            <h3>Rules : </h3>
+            <h4>
+                <ul>
+                    <li>BAT defeats BALL</li>
+                    <li>Ball defeats STUMP</li>
+                    <li>STUMP defeats BAT</li>
+                </ul>
+            </h4>
+
+            <button class="btns" onclick="
+                UserChoiceGame='Bat';
+                console.log('User Game Choice : '+ UserChoiceGame);
+                ComputerChoice();
+                PlayGame();
+            ">
+                Bat
+            </button>
+
+            <button class="btns" onclick="
+                UserChoiceGame='Ball';
+                console.log('User Game Choice : '+ UserChoiceGame);
+                ComputerChoice();
+                PlayGame();
+            ">
+                Ball
+            </button>
+            
+
+            <button class="btns"onclick="
+                UserChoiceGame='Stump';
+                console.log('User Game Choice : '+ UserChoiceGame);
+                ComputerChoice();
+                PlayGame();
+            ">
+                Stump
+            </button>
+            <button class="btns" id="clearBtn" onclick="
+                ClearSavedResults();
+            ">
+                << Clear Results >>
+            </button>
+            <h4 class="Score">
+                Score is : 
+            </h4>
+        </div>
+
+    </main>
+
+    <footer>
+        
+    </footer>
+
+
+    <script src="../PRJ02_BatBallStumpGame/BatBallStumpGame.js">
+        //  
+    </script>
+</body>
+</html>

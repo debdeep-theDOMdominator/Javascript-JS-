@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index2_Selectors</title>
+    <style>
+        *{
+            background-color: lightgreen;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        hr{
+            border: 1px dashed;
+        }
+        h1{
+            color: red;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: black;
+        }
+        h1:hover{
+            background-color: #FDD726 ;
+            color: black;
+        }
+        h2{
+            text-align: center;
+        }
+        p{
+            font-size: 20px;
+        }
+        p:hover{
+            font-weight: 900;
+        }
+
+        .click-me{
+            /* background-color: darkorange; */
+            background-color: #312E81;
+            height: 150px;
+            width: 150px;
+            color: black;
+            font-size: 25px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 900;
+        }
+        .click-me:hover{
+            background-color: #FDD726 ;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+
+        <h1>
+            Ch 01 / Part III : "OnClick" in JS
+        </h1>
+
+        <hr>
+
+        <p>
+            In programming, <b>.onclick</b> is called an event handler (or specifically, an event handler property).
+            It belongs to the <b>DOM (Document Object Model)</b> API and is used to define what code should run when a user clicks a specific HTML element.
+        </p>
+        <br><hr><br>
+
+        <h2>Here's an e.g. of Clickable - Interactive Buttons : </h2>
+
+        <button class="click-me" id="btn01" onclick="alert('BUTTON 01 is clicked ! \n It is an Inline written command in button tag . ')">BUTTON 01 : Click me</button>
+        <br><br>
+        <button class="click-me" id="btn02" >BUTTON 02</button>
+        <button class="click-me" id="btn03">BUTTON 03</button>
+
+
+
+
+    </main>
+
+    <footer>
+
+
+    </footer>
+
+    <script>
+        document.querySelector('#btn01').click();
+
+
+    </script>
+</body>
+
+
+</html>

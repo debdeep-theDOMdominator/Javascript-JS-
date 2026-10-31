@@ -1,0 +1,206 @@
+/* =========================
+   Global Styling
+========================= */
+
+*{
+    background-color:#202c39; /* Jet Black */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:#f2d492; /* Soft Peach */
+    scroll-behavior:smooth;
+    box-sizing:border-box;
+}
+
+/* =========================
+   Body
+========================= */
+
+body{
+    margin:20px;
+
+    background:linear-gradient(
+        180deg,
+        #202c39,
+        #283845,
+        #202c39
+    );
+}
+
+/* =========================
+   Divider
+========================= */
+
+hr{
+    border:2.5px dashed #f29559; /* Tangerine Dream */
+    /* margin:25px 0; */
+}
+
+/* =========================
+   Main Heading
+========================= */
+
+h1{
+     /* Soft Peach */
+    text-align:right;
+
+    padding:18px;
+
+    border:2px solid #f29559;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        135deg,
+        #f29559,
+        #f2d492,
+        #f29559
+    );
+
+    color:#202c39;
+
+    transition:0.4s ease;
+
+    box-shadow:
+        0 0 18px rgba(0,0,0,0.5),
+        0 0 10px rgba(242,149,89,0.25);
+}
+
+/* Hover Effect */
+
+h1:hover{
+    transform:scale(1.015);
+
+    color:#f2d492;
+    background:linear-gradient(
+        135deg,
+        #283845,
+        #202c39,
+        #283845
+    );
+    
+}
+
+/* =========================
+   Section Headings
+========================= */
+
+h2{
+    color:#f29559;
+
+    font-size:36px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    text-shadow:
+        0 0 10px rgba(242,149,89,0.4);
+}
+
+/* =========================
+   Paragraphs
+========================= */
+
+p{
+    font-size:22px;
+
+    line-height:1.9;
+
+    padding:20px;
+
+    margin:20px 0;
+
+    border-left:7px solid #f29559;
+
+    border-radius:14px;
+
+    background-color:#283845;
+
+    color:#f2d492;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,0.4);
+
+    transition:0.35s ease;
+}
+
+/* Hover */
+
+p:hover{
+    transform:translateY(-4px);
+
+    background-color:#202c39;
+
+    border-left:7px solid #f2d492;
+}
+
+/* =========================
+   Bold Text
+========================= */
+
+b{
+    color:#f29559;
+
+    background:none;
+}
+
+/* =========================
+   Code-like Text
+========================= */
+
+code{
+    color:#f2d492;
+
+    background-color:#202c39;
+
+    padding:3px 7px;
+
+    border-radius:6px;
+
+    border:1px solid #f29559;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:15px;
+
+    color:#b8b08d; /* Khaki Beige */
+
+    font-size:18px;
+}
+
+/* =========================
+   Scrollbar
+========================= */
+
+::-webkit-scrollbar{
+    width:12px;
+}
+
+::-webkit-scrollbar-track{
+    background:#202c39;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#f29559;
+
+    border-radius:12px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#f2d492;
+}
+
+/* =========================
+   Selection Highlight
+========================= */
+
+::selection{
+    background:#f29559;
+
+    color:#202c39;
+}

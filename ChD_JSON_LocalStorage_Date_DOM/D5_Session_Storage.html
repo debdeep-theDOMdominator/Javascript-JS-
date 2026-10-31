@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D4 Session Storage</title>
+
+    <style>
+
+        *{
+            background-color:black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:aliceblue;
+            scroll-behavior:smooth;
+        }
+
+        hr{
+            border:2.5px dashed gray;
+        }
+
+        h1{
+            color:black;
+            text-align:right;
+            padding:10px;
+            border-radius:20px;
+            background-color:rgb(24,130,156);
+            transition:0.5s;
+        }
+
+        h1:hover{
+            background-color:aliceblue;
+            color:black;
+        }
+
+        h2{
+            text-align:center;
+            color:cyan;
+            font-size:35px;
+        }
+
+        p{
+            font-size:24px;
+            line-height:1.8;
+        }
+
+        b{
+            color:cyan;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Ch D / Part IV : "SESSION STORAGE" in JS
+        </h1>
+
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>
+            What is Session Storage?
+        </h2>
+
+        <p>
+            Session Storage is a browser storage system used to store temporary data.<br><br>
+
+            The data remains stored until the browser tab is closed.<br><br>
+
+            It stores data in <b>key : value</b> format.
+        </p>
+
+
+        <h2>
+            Features
+        </h2>
+
+        <p>
+            • Temporary storage<br>
+            • Removed after tab closes<br>
+            • Stores only strings<br>
+            • Faster than cookies<br>
+            • Data not shared between tabs
+        </p>
+
+
+        <h2>
+            setItem()
+        </h2>
+
+        <p>
+            Used to store data.<br><br>
+
+            <b>Syntax:</b><br><br>
+
+            sessionStorage.setItem("key","value");<br><br>
+
+            <b>Example:</b><br><br>
+
+            sessionStorage.setItem("username","Sam");
+        </p>
+
+
+        <h2>
+            getItem()
+        </h2>
+
+        <p>
+            Used to retrieve stored data.<br><br>
+
+            <b>Syntax:</b><br><br>
+
+            sessionStorage.getItem("key");
+        </p>
+
+
+        <h2>
+            removeItem()
+        </h2>
+
+        <p>
+            Removes specific stored data.<br><br>
+
+            <b>Syntax:</b><br><br>
+
+            sessionStorage.removeItem("key");
+        </p>
+
+
+        <h2>
+            clear()
+        </h2>
+
+        <p>
+            Removes all stored session data.<br><br>
+
+            <b>Syntax:</b><br><br>
+
+            sessionStorage.clear();
+        </p>
+
+
+        <h2>
+            JSON with Session Storage
+        </h2>
+
+        <p>
+            Objects and arrays must be converted into strings.<br><br>
+
+            <b>Example:</b><br><br>
+
+            let student = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name : "Sam"<br>
+            };<br><br>
+
+            sessionStorage.setItem(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"student",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;JSON.stringify(student)<br>
+            );
+        </p>
+
+
+        <h2>
+            Easy Memory Trick
+        </h2>
+
+        <p>
+            <b>
+                Session Storage =<br><br>
+
+                "Store data until tab closes"
+            </b>
+        </p>
+
+    </main>
+
+    <footer>
+
+        <hr>
+
+        End of Notes
+
+        <hr>
+
+    </footer>
+
+    <script>
+
+        sessionStorage.setItem("username","Sam");
+
+        console.log(
+            sessionStorage.getItem("username")
+        );
+
+    </script>
+
+</body>
+</html>

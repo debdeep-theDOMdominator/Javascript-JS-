@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>NumberGuessing</title>
+    <link rel="stylesheet" href="../PRJ03_NumberGuessing/NumberGuessing.css">
+    
+</head>
+<body>
+    <header>
+        <h1>
+            NUMBER GUESSING GAME
+        </h1>
+    </header>
+    <hr>
+    <br>
+    <main>
+
+        <div class="NumberGuessingGame">
+            <div class="NumberGuessingDiv">
+
+                <div class="display">
+                    <input type="text" class="StatusDisplay" readonly>
+                </div>
+
+                <div class="NumberButtons">
+
+                    <div class="buttons" 
+                        onclick="UserToken=1;ComputerChoose()" >
+                        1
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=2;ComputerChoose()" >
+                        2
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=3;ComputerChoose()" >
+                        3
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=4;ComputerChoose()" >
+                        4
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=5;ComputerChoose()" >
+                        5
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=6;ComputerChoose()" >
+                        6
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=7;ComputerChoose()" >
+                        7
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=8;ComputerChoose()" >
+                        8
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=9;ComputerChoose()" >
+                        9
+                    </div>
+                    <div class="buttons" 
+                        onclick="UserToken=0;ComputerChoose()" >
+                        0
+                    </div>
+
+                </div>
+                <br><br>
+            </div>
+
+            <div class="scoreBoard">
+                    <h2 class="score" onclick="displayScore()">
+
+                    </h2>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="../PRJ03_NumberGuessing/NumberGuessing.js">    </script>
+</body>
+</html>

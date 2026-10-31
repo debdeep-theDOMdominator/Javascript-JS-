@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K2 Constructor Functions Practice</title>
+    <style>
+        *{
+            background-color:#bfd4e2; /* Prussian Blue */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            /*color:#ffefd3;  Papaya Whip */
+            scroll-behavior:smooth;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+        Body
+        ========================= */
+
+        body{
+            margin:20px;
+
+            /* background:linear-gradient(
+                180deg,
+                #001b2e,
+                #294c60,
+                #001b2e
+            ); */
+        }
+
+        /* =========================
+        Divider
+        ========================= */
+
+        hr{
+            border:2.5px dashed #ffc49b; /* Peach Glow */
+        }
+
+        /* =========================
+        Main Heading
+        ========================= */
+
+        h1{
+            text-align:right;
+
+            padding:18px;
+
+            border:2px solid #ffc49b;
+
+            border-radius:22px;
+
+            background:linear-gradient(
+                135deg,
+                #ffc49b,
+                #ffefd3,
+                #ffc49b
+            );
+
+            color:#001b2e;
+
+            transition:0.4s ease;
+
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.5),
+                0 0 10px rgba(255,196,155,0.25);
+        }
+
+        /* Hover Effect */
+
+        h1:hover{
+            transform:scale(1.015);
+
+            color:#ffefd3;
+
+            background:linear-gradient(
+                135deg,
+                #294c60,
+                #001b2e,
+                #294c60
+            );
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch K / Part II : " Constructor Functions " in JS - Practice
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <h2>
+            Here's the output : 
+        </h2>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        // Constructor function
+
+        function Pencil(name,T_color,price,qt,company,customMsg){
+            this.name = name;
+            this.color = T_color;
+            this.price = price ;
+            this.quantity = qt;
+            this.company=company;
+            this.customMsg=customMsg;
+
+            this.PencilWrite = function(){
+                let h2 = document.createElement("h2");
+
+                h2.style.color = T_color;
+                if(customMsg){
+                    h2.innerText = customMsg;
+                }else{
+                    h2.innerText = `I'm writing now ,with a  ${T_color} colour ${name} pencil`;
+                }
+                document.body.append(h2);
+            };
+        };
+
+        let pencil_01 = new Pencil("Ultra Black","red",15,25,"Nataraj");
+        //pencil_01.PencilWrite();
+
+        let pencil_02 = new Pencil("Doms Mechanical 2.0","blue",60,3,"Doms");
+        //pencil_02.PencilWrite();
+
+        let pencil_03 = new Pencil("Klick 0.7 mm Mechanical","darkgreen",25,7,"Camlin","Hey there partner !");
+        //pencil_03.PencilWrite();
+
+
+    </script>
+    
+</body>
+</html>

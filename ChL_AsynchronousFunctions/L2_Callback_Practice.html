@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./L_ChapterL_CSS_File.css">
+    <title>L2 Callback Practice</title>
+</head>
+<body><header>
+        <h1>
+            Ch L / Part II : " Callback : Practice " in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        
+    </main>
+
+
+
+    <script>
+
+        function ProfileFetch(username,cb_fn){
+            console.log("Fetching the profile details .....");
+            setTimeout(function(){
+                cb_fn({
+                    _id : "HBI/2026-27/15933-kol",
+                    username,
+                    Name : "Debdeep",
+                    age : 22,
+                });
+            },2000);
+        };
+
+
+        var mycallbackfn = function(cb_data)
+        {
+            console.log(cb_data);
+        };
+
+        ProfileFetch("dsg",mycallbackfn);
+
+        /* 
+            Visual Flow :
+
+                ProfileFetch() called
+                        │
+                        ▼
+                Print "Fetching..."
+                        │
+                        ▼
+                Wait 2 sec
+                        │
+                        ▼
+                Create Object
+                        │
+                        ▼
+                Call callback function
+                        │
+                        ▼
+                console.log(cb_data)
+        */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout & setInterval</title>
+    <link rel="stylesheet" href="./F_ChapterF_CSSfile.css">
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch F / Part III : "setTimeout & setInterval" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What are setTimeout() & setInterval()?</h2>
+
+        <p>
+            Definition: These functions are used to execute code asynchronously after a delay.<br><br>
+
+            • <b>setTimeout()</b> runs code only once after a given time.<br>
+            • <b>setInterval()</b> runs code repeatedly after fixed intervals.
+        </p><br>
+
+
+        <h2>setTimeout()</h2>
+
+        <p>
+            Definition: Executes a function once after a delay.<br><br>
+
+            <b>Syntax:</b><br>
+            setTimeout(function, time);<br><br>
+
+            <b>Example:</b><br>
+            setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Executed after 2 seconds");<br>
+            },2000);
+        </p><br>
+
+
+        <h2>clearTimeout()</h2>
+
+        <p>
+            Definition: Stops a timeout before it executes.<br><br>
+
+            <b>Syntax:</b><br>
+            clearTimeout(timerID);<br><br>
+
+            <b>Example:</b><br>
+            let timer = setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br>
+            },3000);<br><br>
+
+            clearTimeout(timer);
+        </p><br>
+
+
+        <h2>setInterval()</h2>
+
+        <p>
+            Definition: Repeats execution continuously after a fixed interval.<br><br>
+
+            <b>Syntax:</b><br>
+            setInterval(function, time);<br><br>
+
+            <b>Example:</b><br>
+            setInterval(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Running every 1 second");<br>
+            },1000);
+        </p><br>
+
+
+        <h2>clearInterval()</h2>
+
+        <p>
+            Definition: Stops a running interval.<br><br>
+
+            <b>Syntax:</b><br>
+            clearInterval(intervalID);<br><br>
+
+            <b>Example:</b><br>
+            let interval = setInterval(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Repeated");<br>
+            },1000);<br><br>
+
+            clearInterval(interval);
+        </p><br>
+
+
+        <h2>Important Notes</h2>
+
+        <p>
+            • Time is measured in milliseconds.<br>
+            • 1000 milliseconds = 1 second.<br>
+            • Used for delays, animations, timers, games, notifications, etc.<br><br>
+
+            <b>Example:</b><br>
+            setTimeout(() => console.log("Done"), 1000);
+        </p><br>
+
+    </main>
+
+
+     <footer>
+        <hr>
+        body ends here as footer
+        <hr>
+    </footer>
+
+    <script>
+        // `setTimeout` FUNCTION :
+        //----------------------------------------------
+
+            function msg(){
+                console.log(`HELLO !`);
+            }
+
+            setTimeout(msg,1000);
+
+            // now getting `ID` of `setTimeout`
+
+                let setTiemoutID = setTimeout(function(){
+                    console.log("I'm printed after 5 seconds ..");
+                },5000);
+
+                console.log(`setTiemoutID is : ${setTiemoutID}`);
+
+            // Cancel setTimeout : `clearTimeout(timerID)`
+
+                // clearTimeout(setTiemoutID);
+
+
+        // `setInterval` FUNCTION :
+        //----------------------------------------------
+
+            let alarm = function(){
+                    console.log(`Alarm is ringing at : ${new Date().toTimeString()}`);
+                }
+
+            // setInterval(alarm,1000);
+
+        // Now i wanna create a Interval where my alarm will ring every second for continous 10 second and then it will turn off : 
+
+            setIntervalID = setInterval(alarm,1000);
+
+            setTimeout(function(){
+                clearInterval(setIntervalID);
+                console.log(`Timer Stopped after 10 seconds !`);
+            },10000);
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index2_Selectors</title>
+    <style>
+        *{
+            background-color: lightgreen;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        hr{
+            border: 1px dashed;
+        }
+        h1{
+            color: red;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: black;
+        }
+        h1:hover{
+            background-color: #FDD726 ;
+            color: black;
+        }
+        p{
+            font-size: 20px;
+        }
+        p:hover{
+            font-weight: 900;
+        }
+
+        .click-me{
+            /* background-color: darkorange; */
+            background-color: #312E81;
+            height: 150px;
+            width: 150px;
+            color: black;
+            font-size: 25px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 900;
+        }
+        .click-me:hover{
+            background-color: #FDD726 ;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+
+        <h1>
+            Ch 01 / Part I : Selectors in JS
+        </h1>
+
+        <hr>
+
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero perspiciatis, nulla magnam commodi quaerat totam aut ad rerum ullam quis deleniti eum voluptas maiores ut debitis laboriosam neque consectetur cupiditate dolorem impedit! Eveniet, cumque. Nulla, neque aliquam tempore repellendus itaque asperiores numquam aspernatur at omnis quae quas unde soluta rerum voluptate libero amet assumenda inventore provident beatae dignissimos totam, minima ea perspiciatis. Dolor cupiditate inventore porro suscipit officia repellat, natus omnis libero, enim ipsam sit atque saepe quibusdam quo cumque blanditiis quaerat impedit molestias rerum ipsum perspiciatis obcaecati quia mollitia ullam? Eveniet quo sunt ab sequi earum veritatis impedit ipsa.
+        </p>
+
+        <button class="click-me">BUTTON 01</button>
+        <button class="click-me">BUTTON 02</button>
+        <button class="click-me" id="btn03">BUTTON 03</button>
+
+
+
+
+    </main>
+
+    <footer>
+
+
+    </footer>
+
+    <script>
+        alert('PERFORM THE FOLLOWING TASK IN THIS MODULE IN "CONSOLE" \n Open Console');
+        console.log('Perform the task here !');
+        console.warn(' write each and check answer . Don\'t cheat ');
+        console.error('this is an EXAMPLE of error ');
+        // PERFORM THE FOLLOWING TASK IN THIS MODULE IN "CONSOLE" : 
+
+        /*
+
+            1. getElementById : [id = btn03]
+             -->   Ans . document.getElementById('btn03');
+
+            2. getElementByClassName : [class = click-me]
+             -->   Ans . document.getElementByClassName('click-me');
+
+            3. querySelector : [selector = h1 ; p ; .click-me ; #btn03]
+             -->   Ans . document.querySelector('h1');
+             -->   Ans . document.querySelectorAll('.click-me');
+
+
+        */
+
+
+    </script>
+</body>
+
+
+</html>

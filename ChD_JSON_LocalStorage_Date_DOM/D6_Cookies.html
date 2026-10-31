@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D5 Cookies</title>
+
+    <style>
+
+        *{
+            background-color:black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:aliceblue;
+            scroll-behavior:smooth;
+        }
+
+        hr{
+            border:2.5px dashed gray;
+        }
+
+        h1{
+            color:black;
+            text-align:right;
+            padding:10px;
+            border-radius:20px;
+            background-color:rgb(24,130,156);
+            transition:0.5s;
+        }
+
+        h1:hover{
+            background-color:aliceblue;
+            color:black;
+        }
+
+        h2{
+            text-align:center;
+            color:cyan;
+            font-size:35px;
+        }
+
+        p{
+            font-size:24px;
+            line-height:1.8;
+        }
+
+        b{
+            color:cyan;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Ch D / Part V : "COOKIES" in JS
+        </h1>
+
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>
+            What are Cookies?
+        </h2>
+
+        <p>
+            Cookies are small pieces of data stored in the browser.<br><br>
+
+            Mainly used for:<br><br>
+
+            • Authentication<br>
+            • Login sessions<br>
+            • User tracking<br>
+            • Saving preferences
+        </p>
+
+
+        <h2>
+            Features of Cookies
+        </h2>
+
+        <p>
+            • Stored in browser<br>
+            • Sent with every HTTP request<br>
+            • Can expire after specific time<br>
+            • Stores only strings
+        </p>
+
+
+        <h2>
+            Basic Syntax
+        </h2>
+
+        <p>
+            <b>Syntax:</b><br><br>
+
+            document.cookie = "key=value";<br><br>
+
+            <b>Example:</b><br><br>
+
+            document.cookie = "username=Sam";
+        </p>
+
+
+        <h2>
+            Expiry Date
+        </h2>
+
+        <p>
+            Cookies can expire after some time.<br><br>
+
+            <b>Example:</b><br><br>
+
+            document.cookie =<br>
+            "username=Sam; expires=Fri, 31 Dec 2027 12:00:00 UTC";
+        </p>
+
+
+        <h2>
+            Cookie Path
+        </h2>
+
+        <p>
+            Path decides where cookie can be accessed.<br><br>
+
+            <b>Example:</b><br><br>
+
+            document.cookie = "theme=dark; path=/";
+        </p>
+
+
+        <h2>
+            Reading Cookies
+        </h2>
+
+        <p>
+            <b>Syntax:</b><br><br>
+
+            document.cookie;<br><br>
+
+            Returns all cookies as a string.
+        </p>
+
+
+        <h2>
+            Deleting Cookies
+        </h2>
+
+        <p>
+            Cookies are deleted using old expiry date.<br><br>
+
+            <b>Example:</b><br><br>
+
+            document.cookie =<br>
+            "username=Sam; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        </p>
+
+
+        <h2>
+            Cookie Problems
+        </h2>
+
+        <p>
+            • Stores only strings<br>
+            • Expiry handled manually<br>
+            • Sent with requests<br>
+            • Excessive cookies reduce performance
+        </p>
+
+
+        <h2>
+            Easy Memory Trick
+        </h2>
+
+        <p>
+            <b>
+                Cookies =<br><br>
+
+                "Small browser data sent to server"
+            </b>
+        </p>
+
+    </main>
+
+    <footer>
+
+        <hr>
+
+        End of Notes
+
+        <hr>
+
+    </footer>
+
+    <script>
+
+        document.cookie = "theme=dark";
+        document.cookie ="username=Sam; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
+        console.log(document.cookie);
+
+    </script>
+
+</body>
+</html>

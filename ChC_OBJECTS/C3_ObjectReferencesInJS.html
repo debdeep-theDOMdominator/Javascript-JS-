@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C3 Object References In Js</title>
+    <style>
+        *{
+            background-color:rgb(68, 207, 200);
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        hr{
+            border: 1px dashed black;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:chartreuse;
+        }
+        h1:hover{
+            background-color: black;
+            color: chartreuse;
+        }
+        p{
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch C / Part III : "OBJECT REFERENCING" in JS
+        </h1>
+    </header>
+    <hr>
+    <main>
+
+        <h2>
+            What is Object Referencing ?
+        </h2>
+        <p>
+            In JavaScript, objects work based on references, not actual stored values.
+        </p>
+        <br>
+
+        <h2>
+            Key Concept :
+        </h2>
+        <p>
+            When you assign an object to another variable, it copies the reference (memory address), not the actual object.
+        </p>
+        <br>
+
+        <h2>
+            Example 1 :
+        </h2>
+        <p>
+            let obj1 = { name: "Rahul" };<br>
+            let obj2 = obj1;<br><br>
+
+            obj2.name = "Amit";<br><br>
+
+            console.log(obj1.name); // Amit
+        </p>
+        <p>
+            Changing obj2 also changes obj1 because both point to the same reference.
+        </p>
+        <br>
+
+        <h2>
+            Comparing Objects :
+        </h2>
+        <p>
+            When using == or ===, JavaScript compares references, not content.
+        </p>
+        <br>
+
+        <h2>
+            Example 2 :
+        </h2>
+        <p>
+            let a = { value: 10 };<br>
+            let b = { value: 10 };<br><br>
+
+            console.log(a == b); // false
+        </p>
+        <p>
+            Even though values are same, references are different.
+        </p>
+        <br>
+
+        <h2>
+            Example 3 (Same Reference) :
+        </h2>
+        <p>
+            let x = { num: 5 };<br>
+            let y = x;<br><br>
+
+            console.log(x == y); // true
+        </p>
+        <p>
+            Both variables point to the same object.
+        </p>
+        <br>
+
+        <h2>
+            Important Note :
+        </h2>
+        <p>
+            Changes made using one reference will affect all variables pointing to that object.
+        </p>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        //EXAMPLE 01 : NUMBER IN VARIABLES 
+        //---------------------------------
+
+        let num1 = 56;
+        let num2 = num1;
+        console.log(`num1 : ${num1} , num2 : ${num2} `);
+        num1 = 7;
+        console.log(`num1 : ${num1} , num2 : ${num2} `);
+
+        //EXAMPLE 02 : OBJECTS
+        //---------------------------------
+
+        let obj01 = {
+            itemName : 'Laptop',
+        };
+        let obj02 = obj01;
+        console.log(`obj01.itemName = ${obj01.itemName}`);
+        console.log(obj01);
+        console.log(`obj02.itemName = ${obj02.itemName}`);
+        console.log({obj02});
+        obj01.itemName = 'Computer';
+        console.log(`obj01.itemName = ${obj01.itemName}`);
+        console.log(`obj02.itemName = ${obj02.itemName}`);
+        console.log(obj01 == obj02 , "as, Both variables point to the same object.");
+
+
+    </script>
+</body>
+</html>

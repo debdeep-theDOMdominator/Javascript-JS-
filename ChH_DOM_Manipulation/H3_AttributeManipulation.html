@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Manipulation in DOM Manipulation</title>
+    <style>
+        *{
+            background-color:#001219; /* Ink Black */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#e9d8a6; /* Wheat */
+            scroll-behavior:smooth;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+        Body
+        ========================= */
+
+        body{
+            margin:20px;
+        }
+
+        /* =========================
+        Main Heading
+        ========================= */
+
+        h1{
+            color:#e9d8a6; /* Wheat */
+            text-align:center;
+            padding:18px;
+            border:2px solid #ee9b00; /* Golden Orange */
+            border-radius:22px;
+
+            background:linear-gradient(
+                135deg,
+                #005f73,
+                #0a9396,
+                #005f73
+            );
+
+            transition:0.4s ease;
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.4),
+                0 0 8px rgba(10,147,150,0.4);
+        }
+
+        /* Hover Effect */
+
+        h1:hover{
+            transform:scale(1.015);
+
+            background:linear-gradient(
+                135deg,
+                #ca6702,
+                #ee9b00,
+                #bb3e03
+            );
+
+            color:#001219;
+        }
+        h2{
+            font-size: 30px;
+        }
+        .targetLinkShow{
+            height: 150px;
+            width: 350px;
+            background-color: #bb3e03;
+            text-align: center;
+            border: 1px solid white;
+            padding: 45px;
+            margin: 30px;
+
+        }
+        .targetLinkShow a{
+            color: white;
+            text-decoration: none;
+            background-color: transparent;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch H / Part III : "Attribute Manipulation in DOM Manipulation PRACTICE" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form class="LinkForm">
+
+            <label for="targetName">Enter for address : </label>
+            <input type="text" name="targetName" id="targetName">
+            <br>
+            <input type="submit" id="submit">
+
+        </form>
+
+        <div class="targetLinkShow">
+            <a href="" class="targetLink">CLICK HERE</a>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        let a_targetLink = document.querySelector(".targetLink");
+        let LinkForm = document.querySelector(".LinkForm");
+        let targetName = document.querySelector("#targetName");
+
+        console.dir(a_targetLink);
+        console.log(a_targetLink.href);
+        console.log(a_targetLink.getAttribute("href"));
+        console.log(a_targetLink.style.textDecoration);
+
+        LinkForm.addEventListener("submit",function(event){
+            alert(`SUBMIT`);
+            console.log(targetName.value);
+            event.preventDefault();
+            a_targetLink.innerText =`${targetName.value}`;
+            a_targetLink.setAttribute("href",`https://www.${targetName.value}.com`);
+            a_targetLink.style.textDecoration=`underline`;
+            console.log(a_targetLink.getAttribute("href"));
+            
+        });
+        
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 Date</title>
+    <style>
+        *{
+            background-color:black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color: aliceblue;
+        }
+        hr{
+            border: 2.5px dashed gray;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:rgb(24, 130, 156);
+            transition: 0.5s;
+        }
+        h1:hover{
+            background-color: aliceblue;
+            color: black;
+        }
+        p{
+            font-size: 22px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Ch D / Part III : "DATE"
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is Date in JavaScript?</h2>
+        <p>
+            <b>new Date()</b> creates a new Date object with the current date and time.<br><br>
+            <b>Example:</b><br>
+            let currentDate = new Date();<br>
+            console.log(currentDate);
+        </p>
+        <br>
+
+        <h2>getTime()</h2>
+        <p>
+            Returns milliseconds since January 1, 1970 (Epoch time).<br><br>
+            <b>Example:</b><br>
+            let time = new Date().getTime();<br>
+            console.log(time);
+        </p>
+        <br>
+
+        <h2>getFullYear()</h2>
+        <p>
+            Returns the 4-digit year.<br><br>
+            <b>Example:</b><br>
+            let year = new Date().getFullYear();<br>
+            console.log(year);
+        </p>
+        <br>
+
+        <h2>getDay()</h2>
+        <p>
+            Returns the day of the week (0 = Sunday, 6 = Saturday).<br><br>
+            <b>Example:</b><br>
+            let day = new Date().getDay();<br>
+            console.log(day);
+        </p>
+        <br>
+
+        <h2>getHours() & getMinutes()</h2>
+        <p>
+            Used to get current hour and minutes.<br><br>
+            <b>Example:</b><br>
+            let hours = new Date().getHours();<br>
+            let minutes = new Date().getMinutes();<br>
+            console.log(hours + ":" + minutes);
+        </p>
+        <br>
+
+        <h2>Why is Date Important?</h2>
+        <p>
+            Date is crucial for:<br>
+            • Timestamps<br>
+            • Scheduling tasks<br>
+            • Tracking time-based events<br>
+        </p>
+
+    </main>
+
+    <footer></footer>
+
+    <script>
+        // Example usage
+
+            //creating date object : 'now'
+                let now = new Date();
+            
+            // now accesing functions of that object : 'now'
+                console.log("Current Date:", now);
+                console.log("Year:", now.getFullYear());
+                console.log("Time (ms):", now.getTime());
+    </script>
+
+</body>
+</html>

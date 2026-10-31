@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Bag</title>
+    <style>
+        .buttons2{
+            
+            height: 70px;
+            width: 200px;
+            font-size: 20px;
+        }
+
+        #b04 , #b06{
+            background-color:lightgreen;
+            border: 0px;
+            border-radius: 6px;
+            padding: 5px;
+            margin: 3px;
+        }
+
+        #b05 , #b07{
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 2px 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+
+        <h2 class="Price">
+            <!--  -->
+        </h2>
+
+        <button class="buttons2" id="b04" 
+            onclick=
+                "ItemQuantity++ ;
+                CalculatedPrice+=ItemPrice;
+                summary()"
+        >
+            Add to bag
+        </button>
+
+        <button class="buttons2" id="b05" 
+            onclick=
+                "if(SaleItemToken>0){
+                    CalculatedPrice=CalculatedPrice - SaleItemPrice;
+                    ItemQuantity=ItemQuantity - 2;
+                    SaleItemToken--;
+                }else{
+                CalculatedPrice-=ItemPrice;
+                ItemQuantity-- ;
+                }
+
+                ItemValCheck() ;
+                summary()"
+        >
+            ❤️ WISHLIST
+        </button>
+
+        <button class="buttons2" id="b06" 
+            onclick=
+                "ItemQuantity+=2 ; 
+                CalculatedPrice+=SaleItemPrice;
+                SaleItemToken++;
+                console.log('Sale Item Token : '+SaleItemToken);
+                summary()"
+        >
+            Add 1 + 1 Sale Item
+        </button>
+
+        <button class="buttons2" id="b07" 
+            onclick=
+                "ItemQuantity=0 ; 
+                CalculatedPrice=0;
+                summary()"
+        >
+            RESET
+        </button>
+
+        <h2 class="BagSummary">
+            <!--  -->
+        </h2>
+
+        <h2 class="BagTotal">
+            <!--  -->
+        </h2>
+
+
+    </main>
+    
+    <footer>
+
+    </footer>
+
+
+    <script>
+        let ItemQuantity = 0 ;
+        const ItemPrice = 99.00 ;
+        const SaleItemPrice = 79.00 ; 
+        let CalculatedPrice = 0.00;
+        let TotalPrice= 0.00 ;
+        let SaleItemToken = 0 ;
+        const GST = 18 ;
+        let GST_Amount = 0.00;
+
+        document.querySelector('.Price').innerHTML=`Single Item Price = Rs. ${ItemPrice} <br> Sale Item Price = Rs. ${SaleItemPrice} <br> 18% GST Applicable on all items ! `;
+
+        document.querySelector('.BagSummary').innerHTML=`Your bag has ${ItemQuantity} Items ! `;
+
+        function ItemValCheck(){
+            if(ItemQuantity<0){
+                ItemQuantity=0;
+                CalculatedPrice=0;
+            }
+        }
+
+        function summary(){
+            document.querySelector('.BagSummary').innerHTML=`Your bag has ${ItemQuantity} Items ! `;
+            console.log('Item Quantity : '+ItemQuantity);
+
+            BagTotalPrice();
+        }
+
+        function BagTotalPrice(){
+            GST_Amount= CalculatedPrice*(GST/100);
+            console.log('GST AMOUNT is : '+GST_Amount);
+            TotalPrice=GST_Amount+CalculatedPrice;
+            console.log('Total Price [including GST] : '+TotalPrice);
+            document.querySelector('.BagTotal').innerHTML=
+                `
+                Price = Rs. ${CalculatedPrice}
+                <br>
+                GST = Rs. ${GST_Amount}
+                <br>
+                Total Amount = Rs. ${TotalPrice}
+                `;
+
+            console.log('--------------------------------');
+        }
+
+        
+
+    </script>
+</body>
+</html>

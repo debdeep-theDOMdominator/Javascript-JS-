@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Listener Examples</title>
+
+    <style>
+        .DetailsBox{
+            height: 35px;
+            width: 200px;
+            border: 2px solid wheat;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .DetailsBox:focus{
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="myForm">
+
+        <input type="text" id="name" class="DetailsBox" placeholder="Enter name">
+
+        <br>
+
+        <input type="password" id="password" class="DetailsBox" placeholder="Enter password">
+
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        let nameInput = document.getElementById("name");
+        let form = document.getElementById("myForm");
+
+        /* input
+           Runs while typing
+        */
+        nameInput.addEventListener("input", function () {
+            console.log("Typing:", nameInput.value);
+        });
+
+        /* change
+           Runs after value changes and input loses focus
+        */
+        nameInput.addEventListener("change", function () {
+            console.log("Value Changed");
+        });
+
+        /* focus
+           Runs when input selected
+        */
+        nameInput.addEventListener("focus", function () {
+            console.log("Input Focused");
+        });
+
+        /* blur
+           Runs when input loses focus
+        */
+        nameInput.addEventListener("blur", function () {
+            console.log("Input Lost Focus");
+        });
+
+        /* submit
+           Runs when form submitted
+        */
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault(); // prevents page refresh
+
+            console.log("Form Submitted");
+        });
+
+    </script>
+
+</body>
+</html>

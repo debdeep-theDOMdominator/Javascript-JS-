@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Click Events" : Event Listener</title>
+    <style>
+        *{
+            background-color:#2b2d42; /* Space Indigo */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#edf2f4; /* Platinum */
+            scroll-behavior:smooth;
+        }
+
+        /* Divider */
+        hr{
+            border:2.5px dashed #8d99ae; /* Lavender Grey */
+            margin:20px 0;
+        }
+
+        /* Main Heading */
+        h1{
+            color:#edf2f4; /* Platinum */
+            text-align:center;
+            padding:15px;
+            border:2px solid #ef233c; /* Strawberry Red */
+            border-radius:20px;
+            background:linear-gradient(135deg,#d90429,#ef233c);
+            transition:0.4s ease;
+            box-shadow:0 0 18px rgba(0,0,0,0.35);
+        }
+
+        /* Hover Effect */
+        h1:hover{
+            background:linear-gradient(135deg,#ef233c,#8d99ae);
+            color:#2b2d42; /* Space Indigo */
+            transform:scale(1.01);
+        }
+
+        .btn{
+            height: 150px;
+            width: 150px;
+            background-color: aqua;
+            display: block;
+            padding: 25px ;
+            border: 2px solid white;
+            margin: 30px;
+            color: black;
+            font-size: 25px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Ch G / Part II : "Click Events" : Event Listener in JS
+        </h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <button class="btn" id="b1">
+                CLICK ME
+            </button>
+            <button class="btn" id="b2">
+                DOUBLE CLICK ME 
+            </button>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        // CLICK :
+
+            let b1 = document.querySelector("#b1");
+
+            b1.addEventListener("click",function(){
+                console.log("I'm clicked !");
+            })
+
+        // DOUBLE CLICK :
+
+            let b2 = document.querySelector("#b2");
+
+            b2.addEventListener("dblclick",event => {
+                console.log("I'm Double Clicked !");
+            })
+
+        //
+
+    </script>
+</body>
+</html>

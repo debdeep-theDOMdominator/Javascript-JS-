@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips Generator</title>
+    <link rel="stylesheet" href="../PRJ04_TipsGenerator/TipsGenerator.css">
+</head>
+<body>
+
+    <header>
+        <h1>
+            TIPS CALCULATOR 
+        </h1>
+    </header>
+    <hr>
+    <br>
+    <main>
+
+        <div class="TipCalculator">
+            <div class="container" >
+                <h2>
+                    Money : 
+                </h2>
+                <br>
+                <input type="number" id="Money"  >
+            </div>
+            <div  class="container" >
+                <h2>
+                    Tip % :
+                </h2>
+                <br>
+                <input type="number" id="TipsPercentage" >
+                <br><br>
+                <button class="btn" id="calculateTip" onclick="TipCalculation()">
+                    Calculate
+                </button>
+
+            </div>
+            <div  class="container" >
+                <h2>
+                    Tip Amount :
+                </h2>
+                <br>
+                <input type="number" id="CalculatedTipsMoney" readonly>
+                <br><br>
+                <button class="btn" id="TipReset" onclick="TipCalculationReset()">
+                    Reset
+                </button>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="../PRJ04_TipsGenerator/TipsGenerator.js">
+
+    </script>
+    
+</body>
+</html>

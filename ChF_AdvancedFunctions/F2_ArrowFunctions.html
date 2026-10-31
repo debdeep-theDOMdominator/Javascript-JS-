@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+    <link rel="stylesheet" href="./F_ChapterF_CSSfile.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch F / Part II : "Arrow Functions" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What are Arrow Functions?</h2>
+
+        <p>
+            Definition: Arrow Functions are a short and concise way to write anonymous functions in JavaScript.<br><br>
+
+            <b>Syntax:</b><br>
+            let functionName = () => { };<br><br>
+
+            <b>Example:</b><br>
+            let greet = () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br>
+            };
+        </p><br>
+
+
+        <h2>Single Argument Rule</h2>
+
+        <p>
+            If an arrow function has only one argument, round brackets () are optional.<br><br>
+
+            <b>Normal Syntax:</b><br>
+            let square = (n) => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return n*n;<br>
+            };<br><br>
+
+            <b>Short Syntax:</b><br>
+            let square = n => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return n*n;<br>
+            };
+        </p><br>
+
+
+        <h2>Single Line Rule</h2>
+
+        <p>
+            If the function contains only one line, curly brackets {} and return keyword are optional.<br><br>
+
+            <b>Normal Syntax:</b><br>
+            let add = (a,b) => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return a+b;<br>
+            };<br><br>
+
+            <b>Short Syntax:</b><br>
+            let add = (a,b) => a+b;
+        </p><br>
+
+
+        <h2>Arrow Functions as Arguments</h2>
+
+        <p>
+            Arrow functions are commonly used while passing functions as arguments.<br><br>
+
+            <b>Example:</b><br>
+            setTimeout(() => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Executed after 2 seconds");<br>
+            },2000);
+        </p><br>
+
+
+        <h2>Important Notes</h2>
+
+        <p>
+            • Arrow functions are shorter and cleaner.<br>
+            • Mostly used in callbacks and modern JavaScript.<br>
+            • Useful with array methods like map(), filter(), forEach().<br><br>
+
+            <b>Example:</b><br>
+            let nums = [1,2,3];<br>
+            nums.forEach(num => console.log(num));
+        </p><br>
+
+    </main>
+
+
+    <footer>
+        <hr>
+        body ends here as footer
+        <hr>
+    </footer>
+
+    <script>
+
+        // Normal function :
+
+            function Addition(n1,n2){
+                return n1+n2 ;
+            }
+
+            console.log(Addition(3,6));
+
+        //Anonymous Function :
+
+            let palindromeCheck = function(number){
+                let i,j;
+                i=number;
+                j=0;
+                while(i!=0){
+                    j= ((j*10)+(i%10));
+                    // console.log(j);
+                    i=i/10;
+                    // console.log(i);
+                    i=Math.floor(i);
+                    // console.log(i);
+
+                }
+                if(number==j){
+                    return `It's a Palindrome` ;
+                }else{
+                    return `It is not a Palindrome` ;
+                }
+            };
+
+            console.log(palindromeCheck(121));
+            console.log(palindromeCheck(1251));
+
+        //Arrow Functions :
+
+            let Area = (l,b) => {
+                return l * b ;
+            }
+
+            console.log(Area(13,16));
+
+            let square = num =>  num * num ;
+
+            console.log(square(15)); 
+    </script>
+
+</body>
+</html>

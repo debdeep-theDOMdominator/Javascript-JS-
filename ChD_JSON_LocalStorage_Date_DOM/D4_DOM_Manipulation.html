@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D4 DOM Manipulation in JS</title>
+    <style>
+        *{
+            background-color:black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color: aliceblue;
+        }
+        hr{
+            border: 2.5px dashed gray;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:rgb(24, 130, 156);
+            transition: 0.5s;
+        }
+        h1:hover{
+            background-color: aliceblue;
+            color: black;
+        }
+        h2{
+            color:rgb(227, 203, 23);
+            font-size: 35px;
+        }
+        p{
+            font-size: 22px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>
+        Ch D / Part IV : "DOM Manipulation"
+    </h1>
+</header>
+
+<hr>
+
+<main>
+
+    <h2>DOM & Element Properties</h2>
+
+    <p>
+        <b>1. location</b><br>
+        Definition: Gives information about current URL.<br>
+        Syntax: window.location<br>
+        Example: console.log(window.location.href);
+    </p><br>
+
+    <p>
+        <b>2. title</b><br>
+        Definition: Gets or sets the page title.<br>
+        Syntax: document.title<br>
+        Example: document.title = "New Title";
+    </p><br>
+
+    <p>
+        <b>3. href</b><br>
+        Definition: Gets or sets the full URL of a link.<br>
+        Syntax: element.href<br>
+        Example: document.querySelector("a").href;
+    </p><br>
+
+    <p>
+        <b>4. domain</b><br>
+        Definition: Returns the domain name of the page.<br>
+        Syntax: document.domain<br>
+        Example: console.log(document.domain);
+    </p><br>
+
+    <p>
+        <b>5. innerHTML</b><br>
+        Definition: Gets or sets HTML content inside an element.<br>
+        Syntax: element.innerHTML<br>
+        Example: document.getElementById("demo").innerHTML = "<b>Hello</b>";
+    </p><br>
+
+    <p>
+        <b>6. innerText</b><br>
+        Definition: Gets or sets only text content (no HTML).<br>
+        Syntax: element.innerText<br>
+        Example: document.getElementById("demo").innerText = "Hello";
+    </p><br>
+
+    <p>
+        <b>7. classList</b><br>
+        Definition: Used to add/remove CSS classes.<br>
+        Syntax: element.classList<br>
+        Example: element.classList.add("active");
+    </p><br>
+
+
+    <h2>DOM & Element Methods</h2>
+
+    <p>
+        <b>1. getElementById()</b><br>
+        Definition: Selects element by ID.<br>
+        Syntax: document.getElementById("id")<br>
+        Example: let el = document.getElementById("demo");
+    </p><br>
+
+    <p>
+        <b>2. querySelector()</b><br>
+        Definition: Selects first matching element (CSS selector).<br>
+        Syntax: document.querySelector("selector")<br>
+        Example: document.querySelector(".box");
+    </p><br>
+
+    <p>
+        <b>3. classList.add() / remove()</b><br>
+        Definition: Adds or removes class.<br>
+        Syntax: element.classList.add("class")<br>
+        Example: el.classList.remove("active");
+    </p><br>
+
+    <p>
+        <b>4. createElement()</b><br>
+        Definition: Creates a new HTML element.<br>
+        Syntax: document.createElement("tag")<br>
+        Example: let div = document.createElement("div");
+    </p><br>
+
+    <p>
+        <b>5. appendChild()</b><br>
+        Definition: Adds element inside parent.<br>
+        Syntax: parent.appendChild(child)<br>
+        Example: document.body.appendChild(div);
+    </p><br>
+
+    <p>
+        <b>6. removeChild()</b><br>
+        Definition: Removes child element.<br>
+        Syntax: parent.removeChild(child)<br>
+        Example: parent.removeChild(div);
+    </p><br>
+
+    <p>
+        <b>7. replaceChild()</b><br>
+        Definition: Replaces one child with another.<br>
+        Syntax: parent.replaceChild(newChild, oldChild)<br>
+        Example: parent.replaceChild(newDiv, oldDiv);
+    </p><br>
+
+</main>
+
+<footer>
+    <hr>
+    body ends here as footer 
+    <hr>
+</footer>
+
+<script>
+    // Simple demo
+    let demo = document.createElement("p");
+    demo.innerText = "Hello DOM!";
+    document.body.appendChild(demo);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Notes</title>    
+    <link rel="stylesheet" href="../ChH_DOM_Manipulation/H_ChapterH_CSS_File.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch H / Part I : "DOM Manipulation Notes" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is DOM?</h2>
+
+        <p>
+            DOM stands for <b>Document Object Model</b>.<br><br>
+
+            It is the structure of a webpage created by the browser.<br>
+            JavaScript uses the DOM to access and manipulate HTML elements.<br><br>
+
+            DOM works like a tree structure:
+            <br>
+            • Document<br>
+            • HTML<br>
+            • Head / Body<br>
+            • Elements<br>
+            • Text Nodes<br><br>
+
+            DOM is the brain of the webpage.
+        </p><br>
+
+
+        <h2>DOM Tree Structure</h2>
+
+        <p>
+            Every HTML tag becomes a node in the DOM tree.<br><br>
+
+            Types of Nodes:<br>
+            • Element Node → HTML tags<br>
+            • Text Node → Text inside elements<br>
+            • Comment Node → HTML comments<br><br>
+
+            <b>Example:</b><br>
+
+            &lt;body&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello&lt;/h1&gt;<br>
+            &lt;/body&gt;
+        </p><br>
+
+
+        <h2>Selecting Elements</h2>
+
+        <p>
+            JavaScript can select HTML elements from the webpage.<br><br>
+
+            <b>1. getElementById()</b><br>
+            Selects element using ID.<br><br>
+
+            Syntax:<br>
+            document.getElementById("idName");<br><br>
+
+            Example:<br>
+            let box = document.getElementById("demo");<br><br>
+
+
+            <b>2. getElementsByClassName()</b><br>
+            Selects elements using class name.<br><br>
+
+            Syntax:<br>
+            document.getElementsByClassName("className");<br><br>
+
+
+            <b>3. querySelector()</b><br>
+            Selects first matching element.<br><br>
+
+            Syntax:<br>
+            document.querySelector("selector");<br><br>
+
+            Example:<br>
+            let btn = document.querySelector(".btn");<br><br>
+
+
+            <b>4. querySelectorAll()</b><br>
+            Selects all matching elements.<br><br>
+
+            Syntax:<br>
+            document.querySelectorAll("selector");
+        </p><br>
+
+
+        <h2>Text & Content Access</h2>
+
+        <p>
+            DOM allows changing text and HTML content.<br><br>
+
+            <b>1. innerText</b><br>
+            Gets only visible text.<br><br>
+
+            Example:<br>
+            element.innerText = "Hello";<br><br>
+
+
+            <b>2. textContent</b><br>
+            Gets all text including hidden text.<br><br>
+
+            Example:<br>
+            element.textContent = "New Text";<br><br>
+
+
+            <b>3. innerHTML</b><br>
+            Gets or sets HTML content.<br><br>
+
+            Example:<br>
+            element.innerHTML = "&lt;b&gt;Bold&lt;/b&gt;";
+        </p><br>
+
+
+        <h2>Difference : innerText vs textContent vs innerHTML</h2>
+
+        <p>
+            <b>innerText</b><br>
+            • Only visible text<br>
+            • Ignores hidden text<br><br>
+
+            <b>textContent</b><br>
+            • Returns all text<br>
+            • Faster than innerText<br><br>
+
+            <b>innerHTML</b><br>
+            • Reads/writes HTML tags also<br>
+            • Can insert HTML elements
+        </p><br>
+
+
+        <h2>Attribute Manipulation</h2>
+
+        <p>
+            Attributes of elements can be changed using JavaScript.<br><br>
+
+            <b>1. getAttribute()</b><br>
+            Gets attribute value.<br><br>
+
+            Example:<br>
+            element.getAttribute("href");<br><br>
+
+
+            <b>2. setAttribute()</b><br>
+            Sets new attribute value.<br><br>
+
+            Example:<br>
+            element.setAttribute("href","https://google.com");<br><br>
+
+
+            <b>3. removeAttribute()</b><br>
+            Removes attribute.<br><br>
+
+            Example:<br>
+            element.removeAttribute("disabled");
+        </p><br>
+
+
+        <h2>Dynamic DOM Manipulation</h2>
+
+        <p>
+            JavaScript can create and remove elements dynamically.<br><br>
+
+            <b>1. createElement()</b><br>
+            Creates new HTML element.<br><br>
+
+            Example:<br>
+            let p = document.createElement("p");<br><br>
+
+
+            <b>2. appendChild()</b><br>
+            Adds child inside parent.<br><br>
+
+            Example:<br>
+            document.body.appendChild(p);<br><br>
+
+
+            <b>3. prepend()</b><br>
+            Adds element at beginning.<br><br>
+
+            Example:<br>
+            document.body.prepend(p);<br><br>
+
+
+            <b>4. removeChild()</b><br>
+            Removes child element.<br><br>
+
+            Example:<br>
+            parent.removeChild(child);
+        </p><br>
+
+
+        <h2>Style Manipulation</h2>
+
+        <p>
+            CSS styles can be changed using JavaScript.<br><br>
+
+            <b>1. style</b><br>
+            Directly changes CSS.<br><br>
+
+            Example:<br>
+            element.style.color = "red";<br>
+            element.style.backgroundColor = "black";<br><br>
+
+
+            <b>2. classList</b><br>
+            Used to manage CSS classes.<br><br>
+
+            Methods:<br>
+            • add()<br>
+            • remove()<br>
+            • toggle()<br><br>
+
+            Example:<br>
+            element.classList.add("active");
+        </p><br>
+
+
+        <h2>HTMLCollection vs NodeList</h2>
+
+        <p>
+            <b>HTMLCollection</b><br>
+            • Live Collection<br>
+            • Updates automatically<br>
+            • Returned by getElementsByClassName()<br><br>
+
+            <b>NodeList</b><br>
+            • Static Collection<br>
+            • Does not auto-update<br>
+            • Returned by querySelectorAll()
+        </p><br>
+
+
+        <h2>Practice Ideas</h2>
+
+        <p>
+            Practice DOM Manipulation by building:<br><br>
+
+            • To-Do App<br>
+            • Calculator<br>
+            • Dynamic List Generator<br>
+            • Theme Switcher<br>
+            • Add/Remove Elements using Buttons
+        </p><br>
+
+
+        <h2>Easy Memory Trick</h2>
+
+        <p>
+            DOM Manipulation =<br><br>
+
+            "Select Element → Change Element → Update Webpage"
+        </p><br>
+
+    </main>
+
+    <footer>
+
+        <hr>
+
+        DOM Notes Completed 🚀
+
+        <hr>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Gilroy" ;
+    font-weight: 600;
+}
+
+body{
+    background-color: rgb(33, 32, 32);
+    color: whitesmoke;
+} 
+
+.content{
+    background-color: rgb(92, 90, 90);
+    height: 285px;
+    width: 510px;
+    padding: 35px;
+    margin: 30px;
+    border: 1px solid white;
+    border-radius: 15px;
+    color: black;
+    font-size: 20px;
+}
+
+.content input{
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    text-align: right;
+}
+
+.content label{
+    margin: 10px;
+
+}
+
+.content:hover{
+    background-color:rgb(122, 120, 120) ;
+}
+
+.content input[type="submit"],
+.content input[type="reset"]{
+    background-color: rgb(54, 49, 49);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.content input[type="submit"]:hover,
+.content input[type="reset"]:hover{
+    background-color: rgb(16, 12, 12);
+}
+
+
+
+/* 
+        CONTENT POPULATE : - 
+*/
+/* 
+.contentPopulate{
+    visibility:hidden;
+} */
+
+.contentPopulateCard{
+    background-color: red;
+    width: 400px;
+    padding: 20px;
+    margin: 35px;
+    border: 1px solid whitesmoke;
+    border-radius: 30px;
+}
+
+
+.CandidateProfilePic img{
+    display: flex;
+    justify-content: right;
+    height: 150px;
+    width: 150px;
+    border: 1px dashed ;
+    border-radius: 50%;
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

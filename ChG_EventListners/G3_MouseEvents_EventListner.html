@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Mouse Events" : Event Listener</title>
+    <style>
+        *{
+            background-color:#2b2d42; /* Space Indigo */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#edf2f4; /* Platinum */
+            scroll-behavior:smooth;
+        }
+
+        /* Divider */
+        hr{
+            border:2.5px dashed #8d99ae; /* Lavender Grey */
+            margin:20px 0;
+        }
+
+        /* Main Heading */
+        h1{
+            color:#edf2f4; /* Platinum */
+            text-align:center;
+            padding:15px;
+            border:2px solid #ef233c; /* Strawberry Red */
+            border-radius:20px;
+            background:linear-gradient(135deg,#d90429,#ef233c);
+            transition:0.4s ease;
+            box-shadow:0 0 18px rgba(0,0,0,0.35);
+        }
+
+        /* Hover Effect */
+        h1:hover{
+            background:linear-gradient(135deg,#ef233c,#8d99ae);
+            color:#2b2d42; /* Space Indigo */
+            transform:scale(1.01);
+        }
+
+        .btn{
+            height: 150px;
+            width: 150px;
+            background-color:bisque;
+            display: block;
+            padding: 25px ;
+            border: 2px solid white;
+            margin: 30px;
+            color: black;
+            font-size: 25px;
+            
+        }
+        .btn:hover{
+            background-color: #ef233c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Ch G / Part III : "Click Events" : Event Listener in JS
+        </h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <button class="btn" id="b1">
+                MOUSE OVER & OUT
+            </button>
+            <button class="btn" id="b2">
+                MOUSE DOWN & UP
+            </button>
+            <button class="btn" id="b3">
+                MOUSE MOVE
+            </button>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        // MOUSE OVER :
+
+            let b1 = document.querySelector("#b1");
+
+            b1.addEventListener("mouseover",function(){
+                console.log("Mouse is over this box !");
+            })
+
+            b1.addEventListener("mouseout",function () {
+                console.log("Mouse left this box !");
+            })
+
+            b1.addEventListener("click",function(){
+                console.log("I'm clicked !");
+            })
+
+            b1.addEventListener("dblclick",event => {
+                console.log("I'm Double Clicked !");
+            })
+
+        // MOUSE OUT :
+
+            let b2 = document.querySelector("#b2");
+
+            b2.addEventListener("mousedown",event => {
+                console.log(`Mouse button pressed - at : ${new Date().toTimeString()}`);
+            })
+
+            b2.addEventListener("mouseup",event => {
+                console.log(`Mouse button released - at : ${new Date().toTimeString()}`);
+            })
+
+        // MOUSE MOVE :
+
+            let b3 = document.querySelector("#b3");
+
+            b3.addEventListener("mousemove",event => {
+                console.log(`Mouse is Moving in this box , at : - at : ${new Date().toTimeString()}`);
+            })
+
+        //
+
+    </script>
+</body>
+</html>

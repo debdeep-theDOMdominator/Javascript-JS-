@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRJ01_CALCULATOR</title>
+    <link rel="stylesheet" href="../PRJ01_CALCULATOR/calculator.css">
+</head>
+<body>
+    <header>
+
+    </header> 
+
+    <main>
+
+        <div class="calculator-pad">
+
+            <input type="text" class="calculator-display" readonly>
+
+                <div class="calculator-buttons-container">
+
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = '';
+                        display();
+                    ">
+                        C
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '1';
+                        display();
+                    ">
+                        1
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '2';
+                        display();
+                    ">
+                        2
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '3';
+                        display();
+                    ">
+                        3
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '4';
+                        display();
+                    ">
+                        4
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '5';
+                        display();
+                    ">
+                        5
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '6';
+                        display();
+                    ">
+                        6
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '7';
+                        display();
+                    ">
+                        7
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '8';
+                        display();
+                    ">
+                        8
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '9';
+                        display();
+                    ">
+                        9
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '0';
+                        display();
+                    ">
+                        0
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '+';
+                        display();
+                    ">
+                        +
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '-';
+                        display();
+                    ">
+                        -
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '*';
+                        display();
+                    ">
+                        *
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '/';
+                        display();
+                    ">
+                        /
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = CurrentDisplay + '.';
+                        display();
+                    ">
+                        .
+                    </div>
+                    <div class="buttons"
+                    onclick="
+                        CurrentDisplay = eval(CurrentDisplay);
+                        display();
+                    ">
+                        =
+                    </div>
+
+                </div>
+
+        </div>
+
+    </main>
+
+
+
+    <footer>
+
+    </footer>
+
+    <script src="../PRJ01_CALCULATOR/calculator.js">
+        // 
+    </script>
+</body>
+</html>

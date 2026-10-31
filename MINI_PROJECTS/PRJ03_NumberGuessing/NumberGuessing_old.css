@@ -1,0 +1,82 @@
+*{
+    font-family:Georgia, 'Times New Roman', Times, serif;    
+}
+
+hr{
+    border: 2px dashed black;
+}
+
+h1{
+    color: red;
+    text-align: center;
+}
+
+.NumberGuessingGame{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.NumberGuessingDiv{
+    border: 5px solid;
+    border-radius: 25px;
+    width: 450px;
+    padding: 10px 0px;
+    margin: 35px;
+}
+
+.scoreBoard{
+    border: 5px solid;
+    border-radius: 25px;
+    width: 450px;
+    height: 150px;
+    padding: 10px 15px;
+    margin: 35px;
+    text-align: center;
+}
+
+.StatusDisplay{
+    height: 55px;
+    width: 360px;
+    padding: 15px;
+    font-size: 55px;
+    /* font-family:'Times New Roman', Times, serif; */
+    font-family: 'Roboto', sans-serif;
+    margin: 15px 25px;
+    border: 2px solid black;
+    border-radius: 25px;
+    text-align: center;
+    color: blue;
+}
+
+.NumberButtons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+}
+
+
+.buttons{
+    height: 40px;
+    width: 40px;
+    border: 2px solid;
+    border-radius: 25px;
+    margin: 25px;
+    padding: 15px;
+    font-size: 31px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K5 Inheritance Practice</title>
+    <style>
+        *{
+            background-color:#bfd4e2; /* Prussian Blue */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            /*color:#ffefd3;  Papaya Whip */
+            scroll-behavior:smooth;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+        Body
+        ========================= */
+
+        body{
+            margin:20px;
+
+            /* background:linear-gradient(
+                180deg,
+                #001b2e,
+                #294c60,
+                #001b2e
+            ); */
+        }
+
+        /* =========================
+        Divider
+        ========================= */
+
+        hr{
+            border:2.5px dashed #ffc49b; /* Peach Glow */
+        }
+
+        /* =========================
+        Main Heading
+        ========================= */
+
+        h1{
+            text-align:right;
+
+            padding:18px;
+
+            border:2px solid #ffc49b;
+
+            border-radius:22px;
+
+            background:linear-gradient(
+                135deg,
+                #ffc49b,
+                #ffefd3,
+                #ffc49b
+            );
+
+            color:#001b2e;
+
+            transition:0.4s ease;
+
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.5),
+                0 0 10px rgba(255,196,155,0.25);
+        }
+
+        /* Hover Effect */
+
+        h1:hover{
+            transform:scale(1.015);
+
+            color:#ffefd3;
+
+            background:linear-gradient(
+                135deg,
+                #294c60,
+                #001b2e,
+                #294c60
+            );
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch K / Part V : " Inheritance " in JS - Practice
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <h2>
+            <u>Here's the output : </u>
+        </h2>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        // Class : 
+            class User{
+                constructor(name, age , UserName , Pswd , T_color){
+                    this.name = name;
+                    this.age = age;
+                    this.UserName = UserName;
+                    this.Pswd = Pswd;
+                    this.color = T_color;
+                    this.role = "User";
+                    // console.log(this);
+                };
+                User_Text_message(customMsg) {
+                    let h2 = document.createElement("h2");
+                    console.log(this.color);
+                    h2.style.color = this.color;
+                    if(customMsg){
+                        h2.innerText = `${this.name} : ${customMsg}`;
+                    }else{
+                        h2.innerText = `${this.name} : I'm writing now ,with a  ${this.color} colour .`;
+                    }
+                    document.body.append(h2);
+                };
+            };
+        
+        //Inheritance : Child Class Inheriting from Parent class
+            class Admin extends User{
+                constructor(name, age , UserName , Pswd , T_color){
+                    super(name, age , UserName , Pswd , T_color); //this is initializing all values of Admin Class to that Parent's class constructor . As it is inheritated , so this class will also have those properties and functions .
+                    this.role="Admin";
+                };
+
+                removeAllMsg(){
+                    document.querySelectorAll("h2").forEach(function(element){
+                        element.remove();
+                    });
+                    let h2 = document.createElement("h2");
+                    h2.textContent = "All message are cleared by admin";
+                    document.body.append(h2);
+                    setTimeout(function(){
+                        document.querySelector("h2").remove();
+                    },2000);
+                };
+            };
+
+
+        //Object Creation : 
+            let u1 = new User("Sam",22,"sam@DeStRuCtOr","FOJKS%5414@sd2","red");
+            //u1.User_Text_message();
+            //u1.User_Text_message("bye");
+
+            let u2 = new User("Payel",16,"PapaKePari@Tigress","teriiiiii##$$%%456","blue");
+            //u2.User_Text_message();
+            //u2.User_Text_message("hello bachaa");
+
+            /* Admin */
+            let a1 = new Admin("Admin01",99,"adminstartor_001","sdfs&*%^544FFBHVGH$%$&^56","darkgreen");
+
+
+    </script>
+</body>
+</html>

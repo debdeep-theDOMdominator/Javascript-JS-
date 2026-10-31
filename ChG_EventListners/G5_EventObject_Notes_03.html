@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Object Notes 03</title>
+    <link rel="stylesheet" href="./G_ChapterG_CSSfile.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch G / Part V : "Event Object Notes 03" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is the Event Object?</h2>
+
+        <p>
+            Definition: The <b>event object</b> is an object automatically created by JavaScript whenever an event happens.<br><br>
+
+            It stores all information related to the event.<br><br>
+
+            Examples:<br>
+            • Which element was clicked<br>
+            • Which key was pressed<br>
+            • What type of event occurred<br>
+            • Mouse position<br><br>
+
+            <b>Syntax:</b><br>
+            element.addEventListener("event", function(event){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;// use event object<br>
+            });
+        </p><br>
+
+
+        <h2>Accessing the Event Object</h2>
+
+        <p>
+            JavaScript automatically passes the event object into the callback function.<br><br>
+
+            <b>Example:</b><br>
+
+            button.addEventListener("click", function(event){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(event);<br>
+            });
+        </p><br>
+
+
+        <h2>event.target</h2>
+
+        <p>
+            <b>Definition:</b><br>
+            event.target returns the exact element on which the event happened.<br><br>
+
+            It is very useful when working with multiple elements.<br><br>
+
+            <b>Syntax:</b><br>
+            event.target<br><br>
+
+            <b>Example:</b><br>
+
+            document.addEventListener("click", function(event){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(event.target);<br>
+            });<br><br>
+
+            If a button is clicked, event.target will return that button element.
+        </p><br>
+
+
+        <h2>event.type</h2>
+
+        <p>
+            <b>Definition:</b><br>
+            event.type returns the type/name of the event.<br><br>
+
+            Examples:<br>
+            • click<br>
+            • mouseover<br>
+            • keydown<br>
+            • submit<br><br>
+
+            <b>Syntax:</b><br>
+            event.type<br><br>
+
+            <b>Example:</b><br>
+
+            button.addEventListener("click", function(event){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(event.type);<br>
+            });<br><br>
+
+            Output:<br>
+            click
+        </p><br>
+
+
+        <h2>event.preventDefault()</h2>
+
+        <p>
+            <b>Definition:</b><br>
+            preventDefault() stops the browser's default action.<br><br>
+
+            Common Uses:<br>
+            • Stop form submission<br>
+            • Stop page refresh<br>
+            • Stop link navigation<br><br>
+
+            <b>Syntax:</b><br>
+            event.preventDefault();<br><br>
+
+            <b>Example:</b><br>
+
+            form.addEventListener("submit", function(event){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;event.preventDefault();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Form Submission Stopped");<br>
+            });
+        </p><br>
+
+
+        <h2>Why preventDefault() is Important?</h2>
+
+        <p>
+            Normally:<br>
+            • Forms refresh the page after submit<br>
+            • Links open another page<br><br>
+
+            preventDefault() allows JavaScript to control what happens instead.
+        </p><br>
+
+
+        <h2>Example with Form</h2>
+
+        <p>
+            <b>HTML:</b><br>
+
+            &lt;form&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Submit&lt;/button&gt;<br>
+            &lt;/form&gt;<br><br>
+
+            <b>JavaScript:</b><br>
+
+            let form = document.querySelector("form");<br><br>
+
+            form.addEventListener("submit", function(event){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;event.preventDefault();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Submitted Successfully");<br>
+            });
+        </p><br>
+
+
+        <h2>Using Multiple Event Properties Together</h2>
+
+        <p>
+            <b>Example:</b><br>
+
+            button.addEventListener("click", function(event){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(event.target);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(event.type);<br>
+            });
+        </p><br>
+
+
+        <h2>Real Life Analogy</h2>
+
+        <p>
+            Imagine a school bell ringing:<br><br>
+
+            • Event → Bell Rang<br>
+            • event.type → "bell"<br>
+            • event.target → Which bell rang<br>
+            • preventDefault() → Stop automatic school closing
+        </p><br>
+
+
+        <h2>Easy Memory Trick</h2>
+
+        <p>
+            <b>event.target</b> → "Who caused the event?"<br><br>
+
+            <b>event.type</b> → "What event happened?"<br><br>
+
+            <b>preventDefault()</b> → "Stop normal browser behavior"
+        </p><br>
+
+    </main>
+
+
+    <footer>
+
+
+    </footer>
+    
+    <script>
+
+    </script>
+</body>
+</html>

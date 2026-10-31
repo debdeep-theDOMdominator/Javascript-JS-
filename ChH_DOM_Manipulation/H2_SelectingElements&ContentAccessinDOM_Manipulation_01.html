@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting Elements in DOM Manipulation</title>
+    <style>
+        *{
+            background-color:#001219; /* Ink Black */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#e9d8a6; /* Wheat */
+            scroll-behavior:smooth;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+        Body
+        ========================= */
+
+        body{
+            margin:20px;
+        }
+
+        /* =========================
+        Main Heading
+        ========================= */
+
+        h1{
+            color:#e9d8a6; /* Wheat */
+            text-align:center;
+            padding:18px;
+            border:2px solid #ee9b00; /* Golden Orange */
+            border-radius:22px;
+
+            background:linear-gradient(
+                135deg,
+                #005f73,
+                #0a9396,
+                #005f73
+            );
+
+            transition:0.4s ease;
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.4),
+                0 0 8px rgba(10,147,150,0.4);
+        }
+
+        /* Hover Effect */
+
+        h1:hover{
+            transform:scale(1.015);
+
+            background:linear-gradient(
+                135deg,
+                #ca6702,
+                #ee9b00,
+                #bb3e03
+            );
+
+            color:#001219;
+        }
+        h2{
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch H / Part II : "Selecting Elements & Content Access in DOM Manipulation PRACTICE" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <br><br>
+
+        <h2 class="h2_msg01">
+            
+        </h2>
+
+
+        <form action="" class="UserDetails">
+            <label for="user_name">What is your Name ? </label>
+            <input type="text" id="user_name" name="user_name" required>
+            <input type="submit" name="submit" id="UserDetailsSubmit">
+        </form>
+
+        <h2 class="h2_WelcomeMsg02">
+            <!--  -->
+        </h2>
+
+        <h3 class="h3_WelcomeMsg03">
+            
+        </h3>
+
+        <hr>
+        <br><br>
+        <form action="" class="AddNewWelcomeMsgForm">
+            <label for="newWelcomeMsg">Enter New Welcome Message : </label>
+            <input type="text" id="newWelcomeMsg" name="newWelcomeMsg" required>
+            <input type="submit" value="SAVE" id="AddNewWelcomeMsgFormSubmit">
+        </form>
+                
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+    <script>
+        //Initialisations :
+            let WelcomeMsgArr = ["Hello Indian ! ","What a beautiful Day !","Please Login"];
+            let TextAlignArr = ["left","center","right"];
+
+            let TextAlignArrIncrementor = 0;
+            let i=0;
+            let r = 0;
+            let g = 0;
+            let b = 0;
+
+        //Selecting elements :
+            let h2_msg01 = document.querySelector(".h2_msg01");
+            let user_name = document.querySelector("#user_name");
+            let h2_WelcomeMsg02 = document.querySelector(".h2_WelcomeMsg02");
+            let h3_WelcomeMsg03 = document.querySelector(".h3_WelcomeMsg03");
+            let UserDetails=document.querySelector(".UserDetails");
+
+            let newWelcomeMsg=document.querySelector("#newWelcomeMsg");
+            let AddNewWelcomeMsgForm=document.querySelector(".AddNewWelcomeMsgForm");
+
+            //Checking - outputs Initially :
+            console.log("Initial Values : ");
+            console.dir(h2_msg01);
+            console.log(user_name);
+            console.dir(h2_WelcomeMsg02);
+            console.dir(h3_WelcomeMsg03);
+            console.log(UserDetails);
+            console.log(WelcomeMsgArr);
+            console.log(TextAlignArrIncrementor);
+            console.log("------------------------------");
+
+
+            //I wanna display 3 welcome msg , one after another , changing every 2 seconds ! 
+
+                let showWelcomeMsg = function(){
+                    r=Math.floor(Math.random() * 256);
+                    g=Math.floor(Math.random() * 256);
+                    b=Math.floor(Math.random() * 256);
+                    h2_msg01.style.textAlign = `${TextAlignArr[TextAlignArrIncrementor]}`;
+                    h2_msg01.style.color = `rgb(${r},${g},${b})`;
+                    h2_msg01.innerText = WelcomeMsgArr[i];
+                    
+
+                    // let j = 0;
+                    // j=i%WelcomeMsgArr.length;
+                    // switch(i%WelcomeMsgArr.length){
+                    //     case 0 : h2_msg01.style.textAlign = "left";
+                    //             h2_msg01.style.color = `rgb(${r},${g},${b})`;
+                    //             h2_msg01.innerText = WelcomeMsgArr[j];
+                    //             break ;
+                    //     case 1 : h2_msg01.style.textAlign = "center";
+                    //             h2_msg01.style.color = `rgb(${r},${g},${b})`;
+                    //             h2_msg01.innerText = WelcomeMsgArr[j];
+                    //             break ;
+                    //     case 2 : h2_msg01.style.textAlign = "right";
+                    //             h2_msg01.style.color = `rgb(${r},${g},${b})`;
+                    //             h2_msg01.innerText = WelcomeMsgArr[j];
+                    //             break ;
+                    // };
+
+                    i++;
+                    if(i==WelcomeMsgArr.length){
+                        i=0;
+                    }
+
+                    TextAlignArrIncrementor++;
+                    if(TextAlignArrIncrementor>2){
+                        TextAlignArrIncrementor=0;
+                    }
+
+
+                };
+
+                setInterval(showWelcomeMsg,1000);
+                
+
+
+            //now i want that after 5 seconds of page reload , that h2 message will change to "What a beautiful Day !"
+
+                // let newMsgAfter5Sec = function(){
+                //   h2_msg01.innerHTML=`
+                //     <h2 style="text-align: center;">
+                //     What a beautiful Day !
+                //     </h2>
+                //   `;  
+                // };
+
+                // setTimeout(newMsgAfter5Sec,2500);
+
+            //now I want to take the name as input and show it as : 
+            //      "Namaste : {user_name}"
+            //and every 5 second it will get updated !
+
+                /*
+                let newUserNameMsg = function(){
+                    h2_WelcomeMsg02.innerText = `
+                        Namaste : ${user_name.value} 🙏 
+                    `;
+                }
+
+                setInterval(newUserNameMsg,5000);
+                */
+
+            // Other way : Upon clicking Submit , it will show a alert as "Welcome {user_name} to this portal !" , as well as show it as a 'h3' tag .
+
+                UserDetails.addEventListener("submit",function(event){
+                    event.preventDefault();
+                    h3_WelcomeMsg03.innerText = `
+                        Namaste : ${user_name.value} 🙏 
+                    `;
+                    alert(`
+                        Namaste : ${user_name.value} 🙏 
+                    `);
+                });
+
+        // adding new Welcome message in `WelcomeMsg` Array :
+
+            AddNewWelcomeMsgForm.addEventListener("submit",function(event){
+                event.preventDefault();
+
+                if(WelcomeMsgArr[(WelcomeMsgArr.length)-1]!=newWelcomeMsg.value){
+                    WelcomeMsgArr.push(newWelcomeMsg.value);
+                    console.log(WelcomeMsgArr);
+                }
+            });
+
+    </script>
+    
+</body>
+</html>

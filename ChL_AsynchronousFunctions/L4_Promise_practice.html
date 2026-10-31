@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./L_ChapterL_CSS_File.css">
+    <title>L4 Promise</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Ch L / Part IV : " Promise : Practice " in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        
+    </main>
+       
+    <script>
+
+        let pr = new Promise(function(res,rej){
+            setTimeout(()=>{
+                let num = Math.floor(Math.random() * 10);
+
+                if(num > 5){
+                    res(`Resolved with : ${num}`);
+                }else{
+                    rej(`Rejected with : ${num}`);
+                }
+            },1000);
+        });
+
+        pr.then(function(res_val){
+            console.log(res_val);
+        }).catch(function(rej_val){
+            console.log(rej_val);
+        });
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* =========================
+   Global Styling
+========================= */
+
+*{
+    background-color:#001b2e; /* Prussian Blue */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:#ffefd3; /* Papaya Whip */
+    scroll-behavior:smooth;
+    box-sizing:border-box;
+}
+
+/* =========================
+   Body
+========================= */
+
+body{
+    margin:20px;
+
+    background:linear-gradient(
+        180deg,
+        #001b2e,
+        #294c60,
+        #001b2e
+    );
+}
+
+/* =========================
+   Divider
+========================= */
+
+hr{
+    border:2.5px dashed #ffc49b; /* Peach Glow */
+}
+
+/* =========================
+   Main Heading
+========================= */
+
+h1{
+    text-align:right;
+
+    padding:18px;
+
+    border:2px solid #ffc49b;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        135deg,
+        #ffc49b,
+        #ffefd3,
+        #ffc49b
+    );
+
+    color:#001b2e;
+
+    transition:0.4s ease;
+
+    box-shadow:
+        0 0 18px rgba(0,0,0,0.5),
+        0 0 10px rgba(255,196,155,0.25);
+}
+
+/* Hover Effect */
+
+h1:hover{
+    transform:scale(1.015);
+
+    color:#ffefd3;
+
+    background:linear-gradient(
+        135deg,
+        #294c60,
+        #001b2e,
+        #294c60
+    );
+}
+
+/* =========================
+   Section Headings
+========================= */
+
+h2{
+    color:#ffc49b;
+
+    font-size:36px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    text-shadow:
+        0 0 10px rgba(255,196,155,0.4);
+}
+
+/* =========================
+   Paragraphs
+========================= */
+
+p{
+    font-size:22px;
+
+    line-height:1.9;
+
+    padding:20px;
+
+    margin:20px 0;
+
+    border-left:7px solid #ffc49b;
+
+    border-radius:14px;
+
+    background-color:#0b4873;
+
+    color:#ffefd3;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,0.4);
+
+    transition:0.35s ease;
+}
+
+/* Hover */
+
+p:hover{
+    transform:translateY(-4px);
+    background-color:#294c60;
+
+    border-left:7px solid #adb6c4;
+}
+
+/* =========================
+   Bold Text
+========================= */
+
+b{
+    color:#ffc49b;
+
+    background:none;
+}
+
+/* =========================
+   Code-like Text
+========================= */
+
+code{
+    color:#ffefd3;
+
+    background-color:#001b2e;
+
+    padding:3px 7px;
+
+    border-radius:6px;
+
+    border:1px solid #ffc49b;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:15px;
+
+    color:#adb6c4; /* Pale Slate */
+
+    font-size:18px;
+}
+
+/* =========================
+   Scrollbar
+========================= */
+
+::-webkit-scrollbar{
+    width:12px;
+}
+
+::-webkit-scrollbar-track{
+    background:#001b2e;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ffc49b;
+
+    border-radius:12px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#ffefd3;
+}
+
+/* =========================
+   Selection Highlight
+========================= */
+
+::selection{
+    background:#ffc49b;
+
+    color:#001b2e;
+}

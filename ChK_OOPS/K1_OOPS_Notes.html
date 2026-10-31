@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./K_ChapterK_CSS_File.css">
+    <title>K1 OOPS Notes</title>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch K / Part I : " OOPS " in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is OOP in JavaScript?</h2>
+
+        <p>
+            <b>OOP</b> stands for <b>Object-Oriented Programming</b>.<br><br>
+
+            It is a programming style where code is organized using objects and classes.<br><br>
+
+            OOP helps in:<br>
+            • Better structure<br>
+            • Reusability<br>
+            • Modularity<br>
+            • Encapsulation<br>
+            • Easier maintenance
+        </p><br>
+
+
+        <h2>What are Objects?</h2>
+
+        <p>
+            Objects are collections of properties and methods.<br><br>
+
+            <b>Properties</b> → Variables inside objects.<br>
+            <b>Methods</b> → Functions inside objects.<br><br>
+
+            <b>Example:</b><br>
+            let student = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name : "Sam",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;age : 21,<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;show : function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };
+        </p><br>
+
+
+        <h2>Constructor Functions</h2>
+
+        <p>
+            Before ES6 classes,<br>
+            JavaScript used Constructor Functions to create objects.<br><br>
+
+            Constructor functions act like blueprints for creating multiple objects.<br><br>
+
+            <b>Syntax:</b><br>
+            function User(name,age){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.age = age;<br>
+            }<br><br>
+
+            let u1 = new User("Alex",22);
+        </p><br>
+
+
+        <h2>The <code>new</code> Keyword</h2>
+
+        <p>
+            The <code>new</code> keyword is used to create objects from constructor functions or classes.<br><br>
+
+            When <code>new</code> is used:<br>
+            • A new empty object is created<br>
+            • <code>this</code> points to that object<br>
+            • Properties are attached<br>
+            • Object gets returned automatically
+        </p><br>
+
+
+        <h2>Example of Constructor Function</h2>
+
+        <p>
+            function Car(brand,model){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.brand = brand;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.model = model;<br>
+            }<br><br>
+
+            let c1 = new Car("BMW","X5");<br>
+            let c2 = new Car("Audi","A6");<br><br>
+
+            console.log(c1);<br>
+            console.log(c2);
+        </p><br>
+
+
+        <h2>What are Prototypes?</h2>
+
+        <p>
+            Every JavaScript object has a hidden property called <b>prototype</b>.<br><br>
+
+            Prototypes allow objects to share methods and properties.<br><br>
+
+            Instead of creating duplicate methods for every object,<br>
+            methods are stored once inside prototype.
+        </p><br>
+
+
+        <h2>Prototype Example</h2>
+
+        <p>
+            function Student(name){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+            }<br><br>
+
+            Student.prototype.sayHello = function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello " + this.name);<br>
+            };<br><br>
+
+            let s1 = new Student("Sam");<br><br>
+
+            s1.sayHello();
+        </p><br>
+
+
+        <h2>Prototype Chain</h2>
+
+        <p>
+            JavaScript searches properties in a chain called the <b>Prototype Chain</b>.<br><br>
+
+            First:<br>
+            Object itself<br><br>
+
+            Then:<br>
+            Its prototype<br><br>
+
+            Then:<br>
+            Parent prototype<br><br>
+
+            Until:<br>
+            null
+        </p><br>
+
+
+        <h2>ES6 Classes</h2>
+
+        <p>
+            ES6 introduced the <b>class</b> syntax.<br><br>
+
+            Classes are cleaner and easier ways to create objects.<br><br>
+
+            Internally,<br>
+            JavaScript still uses prototypes.
+        </p><br>
+
+
+        <h2>Class Syntax</h2>
+
+        <p>
+            <b>Syntax:</b><br><br>
+
+            class User{<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;constructor(name,age){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.age = age;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;show(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }<br><br>
+
+            let u1 = new User("Alex",25);
+        </p><br>
+
+
+        <h2>Constructor Method</h2>
+
+        <p>
+            The <code>constructor()</code> method runs automatically when object is created.<br><br>
+
+            It is mainly used for initialization.<br><br>
+
+            <b>Example:</b><br>
+            class Test{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;constructor(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Object Created");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }<br><br>
+
+            let t1 = new Test();
+        </p><br>
+
+
+        <h2>Methods in Classes</h2>
+
+        <p>
+            Functions inside classes are called methods.<br><br>
+
+            <b>Example:</b><br>
+            class Animal{<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;sound(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Animal Sound");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }
+        </p><br>
+
+
+        <h2>Inheritance in JavaScript</h2>
+
+        <p>
+            Inheritance allows one class to access properties and methods of another class.<br><br>
+
+            This improves reusability.
+        </p><br>
+
+
+        <h2><code>extends</code> Keyword</h2>
+
+        <p>
+            The <code>extends</code> keyword is used for inheritance.<br><br>
+
+            <b>Example:</b><br>
+            class User{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;login(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("User Logged In");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }<br><br>
+
+            class Admin extends User{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;deleteUser(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("User Deleted");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }
+        </p><br>
+
+
+        <h2><code>super</code> Keyword</h2>
+
+        <p>
+            The <code>super</code> keyword is used to call parent class constructor or methods.<br><br>
+
+            <b>Example:</b><br>
+            class User{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;constructor(name){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }<br><br>
+
+            class Admin extends User{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;constructor(name){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }
+        </p><br>
+
+
+        <h2>Encapsulation</h2>
+
+        <p>
+            Encapsulation means hiding internal data and controlling access.<br><br>
+
+            JavaScript provides private fields using <code>#</code>.<br><br>
+
+            <b>Example:</b><br>
+            class Bank{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;#balance = 5000;<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;showBalance(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.#balance);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }
+        </p><br>
+
+
+        <h2>Private Fields</h2>
+
+        <p>
+            Variables starting with <code>#</code> are private.<br><br>
+
+            They cannot be accessed outside the class.<br><br>
+
+            <b>Example:</b><br>
+            class Test{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;#x = 10;<br>
+            }<br><br>
+
+            let t1 = new Test();<br><br>
+
+            // console.log(t1.#x); ❌ Error
+        </p><br>
+
+
+        <h2>Class Syntax vs Prototype Chain</h2>
+
+        <p>
+            ES6 classes are mainly cleaner syntax.<br><br>
+
+            Internally,<br>
+            JavaScript still uses prototype-based inheritance.<br><br>
+
+            So:<br>
+            <b>Classes = Syntax Sugar over Prototypes</b>
+        </p><br>
+
+
+        <h2>Shared vs Own Properties</h2>
+
+        <p>
+            <b>Own Properties:</b><br>
+            Stored directly inside object.<br><br>
+
+            <b>Shared Properties:</b><br>
+            Stored in prototype and shared among all objects.
+        </p><br>
+
+
+        <h2>Bank Account Class Example</h2>
+
+        <p>
+            class BankAccount{<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;constructor(owner,balance){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.owner = owner;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.balance = balance;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;deposit(amount){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.balance += amount;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;withdraw(amount){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.balance -= amount;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }
+        </p><br>
+
+
+        <h2>User → Admin Inheritance Example</h2>
+
+        <p>
+            class User{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;login(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Login Success");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }<br><br>
+
+            class Admin extends User{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;removeUser(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("User Removed");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }<br><br>
+
+            let a1 = new Admin();<br><br>
+
+            a1.login();<br>
+            a1.removeUser();
+        </p><br>
+
+
+        <h2>Mindset Note</h2>
+
+        <p>
+            Classes provide structure.<br><br>
+
+            Functions provide flexibility.<br><br>
+
+            JavaScript internally still works using prototypes.
+        </p><br>
+
+
+        <h2>Easy Memory Trick</h2>
+
+        <p>
+            <b>Class</b> → Blueprint<br><br>
+
+            <b>Object</b> → Real Instance<br><br>
+
+            <b>Constructor</b> → Initializes object<br><br>
+
+            <b>Prototype</b> → Shared methods<br><br>
+
+            <b>Inheritance</b> → Reuse parent features<br><br>
+
+            <b>Encapsulation</b> → Hide data
+        </p><br>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>

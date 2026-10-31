@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Functions As Values</title>
+    <link rel="stylesheet" href="./F_ChapterF_CSSfile.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch F / Part I : "Anonymous Functions As Values" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What are Anonymous Functions?</h2>
+
+        <p>
+            Definition: Anonymous Functions are functions without a name.<br>
+            They are often assigned to variables or used directly where needed.<br><br>
+
+            Functions in JavaScript are <b>first-class citizens</b>, which means they can be:<br>
+            • Stored in variables<br>
+            • Passed as arguments<br>
+            • Returned from functions<br>
+            • Stored inside objects<br><br>
+
+            <b>Example:</b><br>
+            let greet = function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br>
+            };
+        </p><br>
+
+
+        <h2>Functions as Values</h2>
+
+        <p>
+            Functions can be assigned to variables like any other value.<br><br>
+
+            <b>Syntax:</b><br>
+            let variableName = function(){ };<br><br>
+
+            <b>Example:</b><br>
+            let add = function(a,b){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return a+b;<br>
+            };<br><br>
+
+            console.log(add(2,3));
+        </p><br>
+
+
+        <h2>Anonymous Functions inside Objects</h2>
+
+        <p>
+            Anonymous functions can also be stored as object properties.<br><br>
+
+            <b>Example:</b><br>
+            let obj = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;message : function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Inside Object");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };<br><br>
+
+            obj.message();
+        </p><br>
+
+
+        <h2>Functions as Arguments</h2>
+
+        <p>
+            Anonymous functions can be passed as arguments to other functions.<br><br>
+
+            <b>Example:</b><br>
+            setTimeout(function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Executed Later");<br>
+            },2000);
+        </p><br>
+
+
+        <h2>Invoking Anonymous Functions</h2>
+
+        <p>
+            Functions are invoked using () after the function name or variable.<br><br>
+
+            <b>Example:</b><br>
+            let sayHi = function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Hi");<br>
+            };<br><br>
+
+            sayHi();
+        </p><br>
+
+
+        <h2>Function Type Checking</h2>
+
+        <p>
+            console.log(myFunction) will show that it stores a function.<br>
+            typeof also returns "function".<br><br>
+
+            <b>Example:</b><br>
+            let test = function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Testing");<br>
+            };<br><br>
+
+            console.log(test);<br>
+            console.log(typeof test);
+        </p><br>
+
+    </main>
+
+    <footer>
+        <hr>
+        body ends here as footer
+        <hr>
+    </footer>
+
+    <script>
+
+        // Anonymous Function stored in variable
+        let greet = function(){
+            console.log("Hello User");
+        };
+
+        //Invoking : 
+        greet();
+
+        // typeof function
+        console.log(typeof greet);
+
+        // Function with parameters
+        let multiply = function(a,b){
+            return a*b;
+        };
+
+        console.log("Multiplication : ", multiply(4,5));
+        let multiplyFunction = multiply;
+        console.log("Multiplication [from another Variable] : ",multiplyFunction(10,2.3));
+
+        // Function inside object
+        let student = {
+            name : "Sam",
+            display : function(){
+                console.log("Student Name :", this.name);
+            }
+        };
+
+        student.display();
+
+        // Passing function as argument
+        setTimeout(function(){
+            console.log("Executed after 2 seconds");
+        },2000);
+
+        
+
+    </script>
+
+</body>
+</html>

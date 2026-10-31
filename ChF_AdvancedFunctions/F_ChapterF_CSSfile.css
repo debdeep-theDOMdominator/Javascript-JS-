@@ -1,0 +1,92 @@
+/* Global Styling */
+    *{
+        background-color:#344e41;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color:#dad7cd;
+        scroll-behavior: smooth;
+    }
+
+    /* Divider */
+    hr{
+        border: 2.5px dashed #a3b18a;
+        margin: 20px 0;
+    }
+
+    /* Main Heading */
+    h1{
+        color:#dad7cd;
+        text-align:right;
+        padding:15px;
+        border:2px solid #588157;
+        border-radius:20px;
+        background:linear-gradient(135deg,#3a5a40,#588157);
+        transition:0.4s ease;
+        box-shadow:0 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* Hover Effect */
+    h1:hover{
+        background:linear-gradient(135deg,#a3b18a,#588157);
+        color:#344e41;
+        transform:scale(1.01);
+    }
+
+    /* Section Headings */
+    h2{
+        color:#a3b18a;
+        font-size:35px;
+        text-align:center;
+        margin-top:30px;
+        text-shadow:0 0 8px rgba(163,177,138,0.3);
+    }
+
+    /* Paragraph Styling */
+    p{
+        font-size:22px;
+        color:#dad7cd;
+        line-height:1.8;
+        padding:15px;
+        margin:15px 0;
+        border-left:5px solid #588157;
+        background-color:#3a5a40;
+        border-radius:12px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.2);
+        transition:0.3s;
+    }
+
+    /* Paragraph Hover */
+    p:hover{
+        background-color:#588157;
+        transform:translateY(-3px);
+    }
+
+    /* Bold Text */
+    b{
+        color:#ecf39e;
+        background:none;
+    }
+
+    /* Footer */
+    footer{
+        text-align:center;
+        padding:10px;
+        color:#a3b18a;
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar{
+        width:10px;
+    }
+
+    ::-webkit-scrollbar-track{
+        background:#344e41;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background:#588157;
+        border-radius:10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover{
+        background:#a3b18a;
+    }

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E1 Array</title>
+    <style>
+        *{
+            background-color:#432818;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#ffe6a7;
+        }
+
+        hr{
+            border: 2.5px dashed #bb9457;
+        }
+
+        h1{
+            color: #ffe6a7;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid #99582a;
+            border-radius: 20px;
+            background-color:#6f1d1b;
+            transition: 0.5s;
+        }
+
+        h1:hover{
+            background-color: #bb9457;
+            color: #432818;
+        }
+
+        h2{
+            color:#ffe6a7;
+            font-size: 35px;
+            text-align: center;
+        }
+
+        p{
+            font-size: 22px;
+            color: white;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch E / Part I : "ARRAYS" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is an Array?</h2>
+
+        <p>
+            Definition: An Array is a list of values stored in a single variable.<br>
+            Index: Starts from 0.<br>
+            Use: Store multiple values together.<br><br>
+
+            <b>Example:</b><br>
+            let arr = [10, 20, 30];<br>
+            console.log(arr[0]); // 10
+        </p><br>
+
+
+        <h2>Array Syntax & Values</h2>
+
+        <p>
+            Definition: Arrays are created using [] and store values separated by commas.<br><br>
+
+            Syntax:<br>
+            let arr = [value1, value2, value3];<br><br>
+
+            Rules:<br>
+            • Use [] brackets<br>
+            • Values separated by commas<br>
+            • Can span multiple lines<br>
+            • Can store any data type (even arrays)<br>
+            • typeof array returns "object"<br><br>
+
+            <b>Example:</b><br>
+            let data = [10, "Hello", true, [1,2]];<br>
+            console.log(typeof data); // object
+        </p><br>
+
+
+        <h2>Array Properties</h2>
+
+        <p>
+            <b>1. Array.isArray()</b><br>
+            Definition: Checks if a variable is an array.<br>
+            Syntax: Array.isArray(variable)<br>
+            Example: Array.isArray([1,2,3]);<br><br>
+
+            <b>2. length</b><br>
+            Definition: Returns number of elements.<br>
+            Syntax: array.length<br>
+            Example: let arr = [1,2,3]; console.log(arr.length);
+        </p><br>
+
+
+        <h2>Array Methods</h2>
+
+        <p>
+            <b>1. push()</b><br>
+            Definition: Adds element at end.<br>
+            Example: arr.push(4);<br><br>
+
+            <b>2. pop()</b><br>
+            Definition: Removes last element.<br>
+            Example: arr.pop();<br><br>
+
+            <b>3. shift()</b><br>
+            Definition: Removes first element.<br>
+            Example: arr.shift();<br><br>
+
+            <b>4. unshift()</b><br>
+            Definition: Adds element at beginning.<br>
+            Example: arr.unshift(0);<br><br>
+
+            <b>5. splice()</b><br>
+            Definition: Add/remove elements.<br>
+            Syntax: arr.splice(index, count, newValue)<br>
+            Example: arr.splice(1,1,"New");<br><br>
+
+            <b>6. toString()</b><br>
+            Definition: Converts array to string.<br>
+            Example: arr.toString();<br><br>
+
+            <b>7. sort()</b><br>
+            Definition: Sorts array.<br>
+            Example: arr.sort();<br><br>
+            Rule : <br>
+                sort() alone → strings <br>
+                sort((a,b)=>a-b) → numbers ascending <br>
+                sort((a,b)=>b-a) → numbers <br>
+
+            <b>8. valueOf()</b><br>
+            Definition: Returns array itself.<br>
+            Example: arr.valueOf();
+        </p><br>
+
+
+        <h2>Important Concepts</h2>
+
+        <p>
+            • Arrays use reference like objects.<br>
+            • Destructuring works with arrays.<br><br>
+
+            <b>Example:</b><br>
+            let arr = [10, 20];<br>
+            let [a, b] = arr;<br>
+            console.log(a, b);
+        </p><br>
+
+    </main>
+
+    <footer>
+        <hr>
+        body ends here as footer 
+        <hr>
+    </footer>
+
+    <script>
+
+        //Array
+            let arr1 = [1,2,3,true,6.3578,"Elections",null,'sam'];
+
+        //Object : 
+            let obj01 = {
+                name : 'sam',
+                age : 48,
+            };
+        
+        //Output :
+            console.log(arr1);
+            console.log(typeof arr1); // will return 'Object' --> but that's not the case !
+            console.log(obj01); // it will return original correct result : 'Object'
+
+        // to check if it is a array :
+            console.log(Array.isArray(arr1));  // true
+            console.log(Array.isArray(obj01)); // false
+
+        //to check LENGTH of array :
+            console.log(arr1.length);
+
+        //Adding elements at end of Array : 'push()'
+            console.log("push : ");
+            arr1.push(2.39);
+            console.log(arr1);
+
+        //Deleting elements at end of Array : 'pop()'
+            console.log("pop : ");
+            arr1.pop()
+            console.log(arr1);
+            console.log("pop : ");
+            arr1.pop()
+            console.log(arr1);
+            console.log("pop : ");
+            arr1.pop()
+            console.log(arr1);
+            console.log("pop : ");
+            arr1.pop()
+            console.log(arr1);
+
+        //Adding Element at 1st position : 'unshift()'
+            console.log('shift() :');
+            arr1.shift();
+            console.log(arr1);
+
+        //Removing first Element : 'shift()'
+            console.log('unshift() :');
+            arr1.unshift(false);
+            console.log(arr1);
+
+        // sort() :
+            let arr2 = [ 5,6,2,8,16,90,3,0,7,12];
+            console.log('arr 2 : ',arr2);
+            console.log('sorting array');
+            arr2.sort();
+            console.log('Wrong sorting , due to conversion of numbers to strings : ',arr2);
+            // Rule to remember : 
+            //     sort() alone → strings
+            //     sort((a,b)=>a-b) → numbers ascending
+            //     sort((a,b)=>b-a) → numbers
+            console.log("Correct Ascending Sort : ");
+            arr2.sort(function(a,b){
+                return a-b;
+            });
+            console.log(arr2)
+            console.log("Correct Descending order Sort : ");
+            arr2.sort(function(a,b){
+                return b-a;
+            });
+            console.log(arr2)
+
+        // Destruction : 
+            let arr3 = [10,20,30];
+            console.log('arr3 : ',arr3);
+            let [n1,n2,n3] = arr3;
+            console.log('num1 : ',n1,' num2 : ',n2,' num 3 : ',n3);
+
+
+        
+    </script>
+
+</body>
+</html>

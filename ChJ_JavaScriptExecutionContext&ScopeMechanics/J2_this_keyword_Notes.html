@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./J_ChapterJ_CSS_File.css">
+    <title>J2 this keyword Notes</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Ch J / Part II : "this keyword" using JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is the <code>this</code> Keyword?</h2>
+
+        <p>
+            <b>Definition:</b><br>
+            <code>this</code> is a special keyword in JavaScript that refers to the object that is currently executing the function.<br><br>
+
+            The value of <code>this</code> changes depending on how the function is called.<br><br>
+
+            <b>Important:</b><br>
+            <code>this</code> does NOT depend on where function is written.<br>
+            It depends on HOW the function is called.
+        </p><br>
+
+        <h2>DIFFERENT VALUES OF <code>'this'</code> AT DIFFERENT LOCATIONS - </h2>
+
+        <p> 
+            1. inside global                            : window
+            <br>
+            2. inside FUNCTION                          : window 
+            <br>
+            3. inside method with `es5 FUNCTION`        : object
+            <br>
+            4. inside method with `es6 ARROW FUNCTION`  : window
+            <br>
+            5. `es5 FUNCTION` inside `es5 FUNCTION`     : window
+            <br>
+            6.`ARROW FUNCTION` inside `es5 FUNCTION`    : object
+            <br>
+            7. inside EVENT HANDLER                     : element
+            <br>
+            8. inside `CLASS`                           : blank object
+        </p><br>
+
+        <h2><code>this</code> in Global Scope</h2>
+
+        <p>
+            In the browser global scope,<br>
+            <code>this</code> refers to the <code>window</code> object.<br><br>
+
+            <b>Example:</b><br>
+            console.log(this);<br><br>
+
+            Output:<br>
+            window object
+        </p><br>
+
+
+        <h2><code>this</code> inside Normal Function</h2>
+
+        <p>
+            In a regular function,<br>
+            <code>this</code> usually refers to the global object (<code>window</code>) in non-strict mode.<br><br>
+
+            <b>Example:</b><br>
+            function test(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(this);<br>
+            }<br><br>
+
+            test();<br><br>
+
+            Output:<br>
+            window object
+        </p><br>
+
+
+        <h2><code>this</code> inside Object Method</h2>
+
+        <p>
+            When a function is called as an object method,<br>
+            <code>this</code> refers to that object.<br><br>
+
+            <b>Example:</b><br>
+            let student = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name : "Sam",<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;showName : function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };<br><br>
+
+            student.showName();<br><br>
+
+            Output:<br>
+            Sam
+        </p><br>
+
+
+        <h2><code>this</code> inside Event Listener</h2>
+
+        <p>
+            Inside an event listener,<br>
+            <code>this</code> refers to the element that triggered the event.<br><br>
+
+            <b>Example:</b><br>
+            let btn = document.querySelector("button");<br><br>
+
+            btn.addEventListener("click", function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(this);<br>
+            });<br><br>
+
+            Output:<br>
+            button element
+        </p><br>
+
+
+        <h2><code>this</code> inside Classes</h2>
+
+        <p>
+            Inside classes,<br>
+            <code>this</code> refers to the current object created from the class.<br><br>
+
+            <b>Example:</b><br>
+            class User{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;constructor(name){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;show(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }<br><br>
+
+            let u1 = new User("Alex");<br>
+            u1.show();
+        </p><br>
+
+
+        <h2>Arrow Functions and <code>this</code></h2>
+
+        <p>
+            Arrow functions do NOT create their own <code>this</code>.<br><br>
+
+            They inherit <code>this</code> from their surrounding scope.<br><br>
+
+            This is called <b>Lexical this</b>.<br><br>
+
+            <b>Example:</b><br>
+            let obj = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name : "John",<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;show : () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };<br><br>
+
+            obj.show();<br><br>
+
+            Output:<br>
+            undefined
+        </p><br>
+
+
+        <h2>Why Arrow Functions Lose <code>this</code> in Methods</h2>
+
+        <p>
+            Arrow functions do not bind their own <code>this</code>.<br><br>
+
+            They simply use the surrounding scope’s <code>this</code>.<br><br>
+
+            So inside objects,<br>
+            arrow functions should generally NOT be used as methods.
+        </p><br>
+
+
+        <h2>Correct Use of Arrow Function</h2>
+
+        <p>
+            Arrow functions are useful inside callbacks where we want to preserve outer <code>this</code>.<br><br>
+
+            <b>Example:</b><br>
+            let person = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name : "Sam",<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;show : function(){<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},2000);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };<br><br>
+
+            person.show();
+        </p><br>
+
+
+        <h2>Manual Binding of <code>this</code></h2>
+
+        <p>
+            JavaScript provides methods to manually control <code>this</code>.<br><br>
+
+            Important methods:<br>
+            • bind()<br>
+            • call()<br>
+            • apply()
+        </p><br>
+
+
+        <h2><code>call()</code> Method</h2>
+
+        <p>
+            <code>call()</code> immediately invokes a function with a specific <code>this</code> value.<br><br>
+
+            <b>Syntax:</b><br>
+            functionName.call(object);<br><br>
+
+            <b>Example:</b><br>
+            function greet(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            }<br><br>
+
+            let user = {name : "Alex"};<br><br>
+
+            greet.call(user);
+        </p><br>
+
+
+        <h2><code>apply()</code> Method</h2>
+
+        <p>
+            <code>apply()</code> works like <code>call()</code>,<br>
+            but arguments are passed as an array.<br><br>
+
+            <b>Syntax:</b><br>
+            functionName.apply(object,[arguments]);<br><br>
+
+            <b>Example:</b><br>
+            function add(a,b){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(a+b);<br>
+            }<br><br>
+
+            add.apply(null,[10,20]);
+        </p><br>
+
+
+        <h2><code>bind()</code> Method</h2>
+
+        <p>
+            <code>bind()</code> does NOT immediately execute the function.<br><br>
+
+            It returns a new function with fixed <code>this</code> value.<br><br>
+
+            <b>Syntax:</b><br>
+            functionName.bind(object);<br><br>
+
+            <b>Example:</b><br>
+            function hello(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            }<br><br>
+
+            let obj = {name : "Sam"};<br><br>
+
+            let newFunction = hello.bind(obj);<br><br>
+
+            newFunction();
+        </p><br>
+
+
+        <h2><code>this</code> inside Event Listeners Confusion</h2>
+
+        <p>
+            Inside normal event listener functions,<br>
+            <code>this</code> refers to the clicked element.<br><br>
+
+            But inside arrow functions,<br>
+            <code>this</code> comes from outer scope.<br><br>
+
+            <b>Example:</b><br>
+            btn.addEventListener("click", () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(this);<br>
+            });<br><br>
+
+            Here,<br>
+            <code>this</code> may refer to window object.
+        </p><br>
+
+
+        <h2>Call Site Principle</h2>
+
+        <p>
+            MOST IMPORTANT RULE:<br><br>
+
+            <b>The way a function is CALLED determines the value of <code>this</code>.</b><br><br>
+
+            This is known as the <b>Call Site Principle</b>.
+        </p><br>
+
+
+        <h2>Custom Logger Object Example</h2>
+
+        <p>
+            let logger = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name : "System Logger",<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;normalFunction : function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;},<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;arrowFunction : () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };<br><br>
+
+            logger.normalFunction();<br>
+            logger.arrowFunction();
+        </p><br>
+
+
+        <h2>Using <code>bind()</code> to Fix Context</h2>
+
+        <p>
+            Sometimes functions lose their correct <code>this</code> value.<br><br>
+
+            <code>bind()</code> helps permanently fix the context.<br><br>
+
+            <b>Example:</b><br>
+            let person = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name : "David"<br>
+            };<br><br>
+
+            function show(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);<br>
+            }<br><br>
+
+            let fixedFunction = show.bind(person);<br><br>
+
+            fixedFunction();
+        </p><br>
+
+
+        <h2>Easy Memory Trick</h2>
+
+        <p>
+            <b>Normal Function:</b><br>
+            <code>this</code> depends on caller.<br><br>
+
+            <b>Arrow Function:</b><br>
+            Takes <code>this</code> from outer scope.<br><br>
+
+            <b>bind()</b><br>
+            Permanently fixes <code>this</code>.
+        </p><br>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+    
+</body>
+</html>

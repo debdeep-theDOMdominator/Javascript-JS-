@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./J_ChapterJ_CSS_File.css">
+    <title>J1 Scope , ExecutionContext & Closures </title>
+</head>
+<body>
+    <header>
+        <h1>
+            Ch J / Part I : "Scope , ExecutionContext & Closures " using JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is Scope in JavaScript?</h2>
+
+        <p>
+            <b>Definition:</b><br>
+            Scope defines where variables can be accessed in a program.<br><br>
+
+            It controls the visibility and lifetime of variables.<br><br>
+
+            JavaScript mainly has 3 types of scope:<br>
+            • Global Scope<br>
+            • Function Scope<br>
+            • Block Scope
+        </p><br>
+
+
+        <h2>Global Scope</h2>
+
+        <p>
+            Variables declared outside all functions and blocks belong to the global scope.<br><br>
+
+            These variables can be accessed from anywhere in the program.<br><br>
+
+            <b>Example:</b><br>
+            let username = "Sam";<br><br>
+
+            function showName(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(username);<br>
+            }<br><br>
+
+            showName();
+        </p><br>
+
+
+        <h2>Function Scope</h2>
+
+        <p>
+            Variables declared inside a function are accessible only inside that function.<br><br>
+
+            Outside the function, those variables do not exist.<br><br>
+
+            <b>Example:</b><br>
+            function test(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let age = 20;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(age);<br>
+            }<br><br>
+
+            test();<br><br>
+
+            // console.log(age); ❌ Error
+        </p><br>
+
+
+        <h2>Block Scope</h2>
+
+        <p>
+            Variables declared using <b>let</b> and <b>const</b> inside blocks {} are block scoped.<br><br>
+
+            They only work inside that block.<br><br>
+
+            <b>Example:</b><br>
+            if(true){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let marks = 90;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(marks);<br>
+            }<br><br>
+
+            // console.log(marks); ❌ Error
+        </p><br>
+
+
+        <h2>var vs let vs const</h2>
+
+        <p>
+            <b>var</b><br>
+            • Function Scoped<br>
+            • Can be redeclared<br>
+            • Old way<br><br>
+
+            <b>let</b><br>
+            • Block Scoped<br>
+            • Can be updated<br>
+            • Modern JavaScript<br><br>
+
+            <b>const</b><br>
+            • Block Scoped<br>
+            • Cannot be updated<br>
+            • Used for fixed values
+        </p><br>
+
+
+        <h2>Lexical Scope</h2>
+
+        <p>
+            Lexical Scope means inner functions can access variables of outer functions.<br><br>
+
+            Scope is determined by where functions are written in code.<br><br>
+
+            <b>Example:</b><br>
+            function outer(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let message = "Hello";<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;function inner(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(message);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;inner();<br>
+            }<br><br>
+
+            outer();
+        </p><br>
+
+
+        <h2>Dynamic Scope vs Lexical Scope</h2>
+
+        <p>
+            JavaScript uses <b>Lexical Scope</b>, NOT Dynamic Scope.<br><br>
+
+            Lexical Scope depends on where functions are written.<br>
+            Dynamic Scope would depend on where functions are called.<br><br>
+
+            JavaScript always follows lexical scoping.
+        </p><br>
+
+
+        <h2>What is Execution Context?</h2>
+
+        <p>
+            Execution Context is the environment where JavaScript code runs.<br><br>
+
+            It contains:<br>
+            • Variables<br>
+            • Functions<br>
+            • this keyword<br>
+            • Scope information<br><br>
+
+            JavaScript creates an execution context whenever a script or function runs.
+        </p><br>
+
+
+        <h2>Types of Execution Context</h2>
+
+        <p>
+            <b>1. Global Execution Context</b><br>
+            Created when JS file starts running.<br><br>
+
+            <b>2. Function Execution Context</b><br>
+            Created whenever a function is called.
+        </p><br>
+
+
+        <h2>Phases of Execution Context</h2>
+
+        <p>
+            Every execution context has 2 phases:<br><br>
+
+            <b>1. Memory Creation Phase</b><br>
+            JavaScript allocates memory for variables and functions.<br><br>
+
+            Variables initialized with:<br>
+            • undefined<br><br>
+
+            Functions stored completely in memory.<br><br>
+
+            <b>2. Execution Phase</b><br>
+            Code executes line by line.<br>
+            Variables receive actual values.
+        </p><br>
+
+
+        <h2>Example of Execution Context</h2>
+
+        <p>
+            <b>Code:</b><br><br>
+
+            var x = 10;<br><br>
+
+            function test(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br>
+            }<br><br>
+
+            test();<br><br>
+
+            <b>Memory Phase:</b><br>
+            x → undefined<br>
+            test → full function stored<br><br>
+
+            <b>Execution Phase:</b><br>
+            x → 10<br>
+            test() executes
+        </p><br>
+
+
+        <h2>Call Stack</h2>
+
+        <p>
+            JavaScript uses a Call Stack to manage execution contexts.<br><br>
+
+            Functions are pushed into the stack when called and removed after execution.<br><br>
+
+            <b>Example:</b><br>
+            main()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+            test()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+            display()<br><br>
+
+            Last entered function executes first.<br><br>
+
+            This follows the <b>LIFO</b> rule:<br>
+            Last In First Out.
+        </p><br>
+
+
+        <h2>What is Closure?</h2>
+
+        <p>
+            <b>Definition:</b><br>
+            A Closure is created when a function remembers variables from its outer scope even after the outer function has finished execution.<br><br>
+
+            Closures allow functions to preserve data.
+        </p><br>
+
+
+        <h2>Closure Example</h2>
+
+        <p>
+            function outer(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let count = 0;<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;function inner(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count++;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(count);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;return inner;<br>
+            }<br><br>
+
+            let counter = outer();<br><br>
+
+            counter();<br>
+            counter();<br>
+            counter();
+        </p><br>
+
+
+        <h2>How Closures Work</h2>
+
+        <p>
+            Even after outer() finishes execution,<br>
+            the inner() function still remembers the variable count.<br><br>
+
+            This happens because JavaScript stores references to outer variables.
+        </p><br>
+
+
+        <h2>Closure vs Returning Function</h2>
+
+        <p>
+            Returning a function does NOT automatically mean closure.<br><br>
+
+            Closure happens only when returned function remembers outer variables.<br><br>
+
+            <b>Example:</b><br>
+            function outer(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let name = "Sam";<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;return function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(name);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+            }
+        </p><br>
+
+
+        <h2>Scope Chain</h2>
+
+        <p>
+            JavaScript searches variables in a chain.<br><br>
+
+            First:<br>
+            Current Scope<br><br>
+
+            Then:<br>
+            Parent Scope<br><br>
+
+            Then:<br>
+            Global Scope<br><br>
+
+            This searching mechanism is called the <b>Scope Chain</b>.
+        </p><br>
+
+
+        <h2>Closure Use Cases</h2>
+
+        <p>
+            Closures are commonly used for:<br><br>
+
+            • Private Variables<br>
+            • Data Hiding<br>
+            • Counters<br>
+            • Function Factories<br>
+            • Encapsulation<br>
+            • Maintaining State
+        </p><br>
+
+
+        <h2>Private Counter Example</h2>
+
+        <p>
+            function counter(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let count = 0;<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increment : function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count++;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(count);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decrement : function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count--;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(count);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+            }<br><br>
+
+            let c1 = counter();<br><br>
+
+            c1.increment();<br>
+            c1.increment();<br>
+            c1.decrement();
+        </p><br>
+
+
+        <h2>Mindset Note</h2>
+
+        <p>
+            Closures are how JavaScript gives memory to your logic.<br><br>
+
+            Functions can remember values even after execution finishes.
+        </p><br>
+
+
+        <h2>Easy Memory Trick</h2>
+
+        <p>
+            <b>Scope</b> → Where variables can be used.<br><br>
+
+            <b>Execution Context</b> → Environment where code runs.<br><br>
+
+            <b>Closure</b> → Function remembers outer variables.
+        </p><br>
+
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script>
+
+    </script>
+</body>
+</html>

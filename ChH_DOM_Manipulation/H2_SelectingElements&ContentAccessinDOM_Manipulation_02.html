@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting Elements & Content Access in DOM Manipulation</title>
+    <style>
+        *{
+            background-color:#001219; /* Ink Black */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#e9d8a6; /* Wheat */
+            scroll-behavior:smooth;
+            box-sizing:border-box;
+        }
+
+        /* =========================
+        Body
+        ========================= */
+
+        body{
+            margin:20px;
+        }
+
+        /* =========================
+        Main Heading
+        ========================= */
+
+        h1{
+            color:#e9d8a6; /* Wheat */
+            text-align:center;
+            padding:18px;
+            border:2px solid #ee9b00; /* Golden Orange */
+            border-radius:22px;
+
+            background:linear-gradient(
+                135deg,
+                #005f73,
+                #0a9396,
+                #005f73
+            );
+
+            transition:0.4s ease;
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.4),
+                0 0 8px rgba(10,147,150,0.4);
+        }
+
+        /* Hover Effect */
+
+        h1:hover{
+            transform:scale(1.015);
+
+            background:linear-gradient(
+                135deg,
+                #ca6702,
+                #ee9b00,
+                #bb3e03
+            );
+
+            color:#001219;
+        }
+        h2{
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch H / Part II / 2 : "Selecting Elements & Content Access in DOM Manipulation PRACTICE" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <br><br>
+
+        <h2 class="h2_msg01">
+            
+        </h2>
+
+
+        <form action="" class="UserDetails">
+            <label for="user_name">What is your Name ? </label>
+            <input type="text" id="user_name" name="user_name" required>
+            <br>
+            <label for="newWelcomeMsg">Enter New Welcome Message : </label>
+            <input type="text" id="newWelcomeMsg" name="newWelcomeMsg" required>
+            <br>
+            <input type="submit" name="submit" id="UserDetailsSubmit">
+        </form>
+
+        <h2 class="h2_WelcomeMsg02">
+            <!--  -->
+        </h2>
+
+        <h3 class="h3_WelcomeMsg03">
+            
+        </h3>
+
+        <hr>
+        
+                
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+    <script>
+        //Initialisations :
+            let WelcomeMsgObj = {
+                "admin1" : "Hello Indian ! ",
+                "admin2" : "What a beautiful Day !",
+                "admin3" : "Please Login",
+            };
+
+            let TextAlignArr = ["left","center","right"];
+
+            let WelcomeMsgJSON_String = localStorage.getItem("WelcomeMsgJSON");
+
+            let TextAlignArrIncrementor = 0;
+            let i=0;
+            let r = 0;
+            let g = 0;
+            let b = 0;
+
+        //Selecting elements :
+
+            let h2_msg01 = document.querySelector(".h2_msg01");
+            let h2_WelcomeMsg02 = document.querySelector(".h2_WelcomeMsg02");
+            let h3_WelcomeMsg03 = document.querySelector(".h3_WelcomeMsg03");
+
+            let UserDetailsSubmit = document.querySelector("#UserDetailsSubmit");
+            let user_name = document.querySelector("#user_name");
+            let newWelcomeMsg=document.querySelector("#newWelcomeMsg");
+
+            //form element : 
+            let UserDetails=document.querySelector(".UserDetails");
+
+        //Checking - outputs Initially :
+            console.log("Initial Values : ");
+            console.dir(h2_msg01);
+            console.log(user_name);
+            console.dir(h2_WelcomeMsg02);
+            console.dir(h3_WelcomeMsg03);
+            console.log(UserDetails);
+            console.log(`WelcomeMsgArr : ${WelcomeMsgObj}`);
+            console.log(WelcomeMsgObj);
+            console.log(TextAlignArrIncrementor);
+            console.log(WelcomeMsgJSON_String);
+            console.log("------------------------------");
+
+
+            //I wanna display 3 welcome msg , one after another , changing every 2 seconds ! 
+                // getting all msg from LocalStorage :
+                if(WelcomeMsgJSON_String!==null){
+                        WelcomeMsgObj = JSON.parse(WelcomeMsgJSON_String);
+                    }
+                let showWelcomeMsg = function(){
+                    let messages = Object.values(WelcomeMsgObj);
+
+                    r=Math.floor(Math.random() * 256);
+                    g=Math.floor(Math.random() * 256);
+                    b=Math.floor(Math.random() * 256);
+
+                    h2_msg01.style.textAlign = `${TextAlignArr[TextAlignArrIncrementor]}`;
+                    h2_msg01.style.color = `rgb(${r},${g},${b})`;
+                    h2_msg01.innerText = messages[i];
+                    
+                    i++;
+                    if(i==messages.length){
+                        i=0;
+                    }
+
+                    TextAlignArrIncrementor++;
+                    if(TextAlignArrIncrementor>2){
+                        TextAlignArrIncrementor=0;
+                    }
+
+                };
+
+                setInterval(showWelcomeMsg,1000);
+                
+            // Other way : Upon clicking Submit , it will show a alert as "Welcome {user_name} to this portal !" , as well as show it as a 'h3' tag .
+
+                UserDetails.addEventListener("submit",function(event){
+                    event.preventDefault();
+                    h3_WelcomeMsg03.innerText = `
+                        Namaste : ${user_name.value} 🙏 
+                    `;
+
+                    alert(`
+                        Namaste : ${user_name.value} 🙏 
+                    `);
+
+                    WelcomeMsgObj[`${user_name.value}`]=`${newWelcomeMsg.value}`;
+                    console.log(WelcomeMsgObj);
+
+                    //set it to LOCAL STORAGE :
+                    WelcomeMsgJSON_String=JSON.stringify(WelcomeMsgObj);
+                    console.log(WelcomeMsgJSON_String);
+                    localStorage.setItem("WelcomeMsgJSON",WelcomeMsgJSON_String);
+
+
+                });
+
+
+    </script>
+    
+</body>
+</html>

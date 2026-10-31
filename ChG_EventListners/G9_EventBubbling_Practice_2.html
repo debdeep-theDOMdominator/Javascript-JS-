@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling Practice 02</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .a{
+            background-color: lightcoral;
+            height: 450px;
+            width: 650px;
+        }
+        .b{
+            background-color: lightblue;
+            height: 350px;
+            width: 500px;
+        }
+        .c{
+            background-color: green;
+            height: 200px;
+            width: 350px;
+        }
+        button{
+            height: 75px;
+            width: 150px;
+            font-size: 20px;
+            margin: 35px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="a">
+            <div class="b">
+                <div class="c">
+                    <button>
+                        CLICK ME DEAR !
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <div>
+            <h2>How Event Bubbling Actually Works</h2>
+            <br>
+            <p>
+                When you click a button, only the <b>&lt;button&gt;</b> element is physically clicked.<br><br>
+
+                But in JavaScript, the event does not stop there.<br><br>
+
+                The event travels upward through parent elements inside the DOM tree.<br><br>
+
+                <b>Structure:</b><br><br>
+
+                main<br>
+                └── div.a<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── div.b<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── div.c<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── button<br><br>
+
+                If the button is clicked:<br><br>
+
+                • button receives the event first<br>
+                • then div.c<br>
+                • then div.b<br>
+                • then div.a<br>
+                • then main<br>
+                • then body<br>
+                • then html<br>
+                • then document<br><br>
+
+                The event keeps climbing upward through parent/ancestor elements.<br><br>
+
+                This behavior is called <b>Event Bubbling</b>.
+            </p><br>
+        </div>
+    </main>
+
+    <script>
+        let a = document.querySelector(".a");
+        let b = document.querySelector(".b");
+        let c = document.querySelector(".c");
+        let btn = document.querySelector("button");
+
+        a.addEventListener("click",function(event){
+            console.log("a is invoked !");
+        });
+
+        b.addEventListener("click",function(event){
+            console.log("b is invoked !");
+        });
+
+        c.addEventListener("click",function(event){
+            console.log("c is invoked !");
+        });
+
+        btn.addEventListener("click",function(event){
+            console.log("btn is invoked !");
+        });
+
+
+    </script>
+    
+</body>
+</html>

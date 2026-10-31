@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4 Destructuring & Shorthand In Js</title>
+    <style>
+        *{
+            background-color:rgb(68, 207, 200);
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        hr{
+            border: 1px dashed black;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:chartreuse;
+        }
+        h1:hover{
+            background-color: black;
+            color: chartreuse;
+        }
+        p{
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch C / Part IV : "DESTRUCTURING & SHORTHAND" in JS
+        </h1>
+    </header>
+    <hr>
+    <main>
+
+        <h2>
+            What is Destructuring ?
+        </h2>
+        <p>
+            Destructuring means extracting properties from objects easily into variables.
+        </p>
+        <br>
+
+        <h2>
+            Example :
+        </h2>
+        <p>
+            let person = { name: "Rahul", age: 20 };<br><br>
+
+            let { name, age } = person;<br><br>
+
+            console.log(name); // Rahul<br>
+            console.log(age); // 20
+        </p>
+        <br>
+
+        <h2>
+            Multiple Extraction :
+        </h2>
+        <p>
+            We can extract more than one property at once using destructuring.
+        </p>
+        <br>
+
+        <h2>
+            "PROPERTY" Shorthand :
+        </h2>
+        <p>
+            Instead of writing:<br>
+            let message = "Hello";<br>
+            let obj = { message: message };<br><br>
+
+            We can write:<br>
+            let obj = { message };
+        </p>
+        <br>
+
+        <h2>
+            "METHOD" Shorthand :
+        </h2>
+        <p>
+            We can define methods inside objects without using the function keyword.
+        </p>
+        <br>
+
+        <h2>
+            Example :
+        </h2>
+        <p>
+            let user = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;name: "Rahul",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;greet() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };
+        </p>
+        <br>
+
+        <h2>
+            Key Benefit :
+        </h2>
+        <p>
+            Makes code shorter, cleaner, and easier to read.
+        </p>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C2_Autoboxing In Js</title>
+    <style>
+        *{
+            background-color:rgb(68, 207, 200);
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        hr{
+            border: 1px dashed black;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:chartreuse;
+        }
+        h1:hover{
+            background-color: black;
+            color: chartreuse;
+        }
+        p{
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            Ch C / Part II : AUTOBOXING in JS
+        </h1>
+    </header>
+    <hr>
+    <main>
+
+        <h2>
+            What is "AUTOBOXING" ?
+        </h2>
+        <p>
+            Autoboxing in JavaScript means automatic conversion of primitives into objects when needed.
+        </p>
+        <br>
+        <h2 style="color: rgb(181, 5, 5);">
+            Important Note :
+        </h2>
+        <p style="color: rgb(181, 5, 5);">
+            The object created during autoboxing is temporary and gets destroyed immediately after use.
+        </p>
+        <br>
+
+        <h2>
+            Why Autoboxing ?
+        </h2>
+        <p>
+            It allows properties and methods to be used on primitive values like string, number, and boolean.
+        </p>
+        <br>
+
+        <h2>
+            Key Point :
+        </h2>
+        <p>
+            JavaScript temporarily wraps primitives into their object equivalents.
+        </p>
+        <br>
+
+        <h2>
+            Example with String :
+        </h2>
+        <p>
+            let name = "rahul";<br>
+            console.log(name.length);<br>
+            console.log(name.toUpperCase());
+        </p>
+        <p>
+            Here, "rahul" is a primitive string, but JavaScript converts it into a String object to use methods.
+        </p>
+        <br>
+
+        <h2>
+            Example with Number :
+        </h2>
+        <p>
+            let num = 12.345;<br>
+            console.log(num.toFixed(2));
+        </p>
+        <p>
+            JavaScript converts the number into a Number object to apply the method.
+        </p>
+        <br>
+
+        <h2>
+            Example with Boolean :
+        </h2>
+        <p>
+            let isTrue = true;<br>
+            console.log(isTrue.toString());
+        </p>
+        <p>
+            Boolean primitive is temporarily converted into a Boolean object.
+        </p>
+        <br>
+
+        
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        //STRING :
+        let name = "rahul";
+        console.log(name.length); // primitive data type
+        console.log(name.toUpperCase()); //Convereted to OBJECTS , and then that function is executed and again destroyed !
+
+        //NUMBER :
+        let num = 12.345;
+        console.log(num.toFixed(2)); // --> converted to string !
+        console.log(typeof(num.toFixed(2))); // --> here's the proof ! 
+
+
+    </script>
+</body>
+</html>

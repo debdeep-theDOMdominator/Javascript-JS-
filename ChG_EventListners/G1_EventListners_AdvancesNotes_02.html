@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listners Notes 02</title>
+    <link rel="stylesheet" href="./G_ChapterG_CSSfile.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            Ch G / Part I : "Event Listners Advanced Notes 02" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What are Events?</h2>
+
+        <p>
+            Definition: Events are actions or occurrences that happen in the browser.<br><br>
+
+            Examples:<br>
+            • Clicking buttons<br>
+            • Typing on keyboard<br>
+            • Moving mouse<br>
+            • Submitting forms<br>
+            • Scrolling page<br><br>
+
+            JavaScript can detect these events and respond to them.
+        </p><br>
+
+
+        <h2>What is Event Handling?</h2>
+
+        <p>
+            Event Handling means detecting an event and executing some code in response.<br><br>
+
+            Flow:<br>
+            User Action → Event Happens → Listener Detects → Function Runs
+        </p><br>
+
+
+        <h2>Event Listener</h2>
+
+        <p>
+            Event Listeners wait for events to happen and then run functions.<br><br>
+
+            <b>Syntax:</b><br>
+            element.addEventListener("event", function(){ });<br><br>
+
+            <b>Example:</b><br>
+            btn.addEventListener("click", function(){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Clicked");<br>
+            });
+        </p><br>
+
+
+        <h2>Event Binding</h2>
+
+        <p>
+            Attaching an event listener to an element is called Event Binding.<br><br>
+
+            <b>Example:</b><br>
+            button.addEventListener("click", hello);
+        </p><br>
+
+
+        <h2>Removing Event Listeners</h2>
+
+        <p>
+            removeEventListener() removes attached events.<br><br>
+
+            <b>Syntax:</b><br>
+            element.removeEventListener("event", functionName);<br><br>
+
+            <b>Example:</b><br>
+            btn.removeEventListener("click", hello);
+        </p><br>
+
+
+        <h2>Mouse Events</h2>
+
+        <p>
+            <b>click</b> → Runs when clicked.<br><br>
+
+            <b>dblclick</b> → Runs on double click.<br><br>
+
+            <b>mouseover</b> → Mouse enters element.<br><br>
+
+            <b>mouseout</b> → Mouse leaves element.<br><br>
+
+            <b>mousemove</b> → Runs continuously while moving mouse.<br><br>
+
+            <b>mousedown</b> → Mouse button pressed.<br><br>
+
+            <b>mouseup</b> → Mouse button released.
+        </p><br>
+
+
+        <h2>Keyboard Events</h2>
+
+        <p>
+            <b>keydown</b> → Runs when key pressed.<br><br>
+
+            <b>keyup</b> → Runs when key released.<br><br>
+
+            <b>keypress</b> → Runs while typing.
+        </p><br>
+
+
+        <h2>Input & Form Events</h2>
+
+        <p>
+            <b>input</b> → Runs while typing.<br><br>
+
+            <b>change</b> → Runs when value changes.<br><br>
+
+            <b>focus</b> → Runs when input selected.<br><br>
+
+            <b>blur</b> → Runs when input loses focus.<br><br>
+
+            <b>submit</b> → Runs when form submitted.
+        </p><br>
+
+
+        <h2>Window Events</h2>
+
+        <p>
+            <b>load</b> → Runs when page fully loads.<br><br>
+
+            <b>resize</b> → Runs when browser resized.<br><br>
+
+            <b>scroll</b> → Runs during page scrolling.
+        </p><br>
+
+
+        <h2>The Event Object</h2>
+
+        <p>
+            JavaScript automatically provides an event object containing event information.<br><br>
+
+            <b>Syntax:</b><br>
+            element.addEventListener("click", function(event){ });<br><br>
+
+            <b>Important Properties:</b><br>
+            • event.target<br>
+            • event.type<br>
+            • event.key<br>
+            • event.clientX<br>
+            • event.clientY
+        </p><br>
+
+
+        <h2>preventDefault()</h2>
+
+        <p>
+            preventDefault() stops the browser’s default behavior.<br><br>
+
+            Example:<br>
+            Prevent form from refreshing page after submit.<br><br>
+
+            <b>Syntax:</b><br>
+            event.preventDefault();
+        </p><br>
+
+
+        <h2>event.target vs event.currentTarget</h2>
+
+        <p>
+            <b>event.target</b><br>
+            Actual clicked element.<br><br>
+
+            <b>event.currentTarget</b><br>
+            Element that owns the event listener.<br><br>
+
+            Example:<br>
+            Clicking button inside div:<br>
+            target → button<br>
+            currentTarget → div
+        </p><br>
+
+
+        <h2>Event Bubbling</h2>
+
+        <p>
+            Events move upward from child to parent.<br><br>
+
+            Example:<br>
+            Button inside div clicked:<br>
+            Button Event → Div Event
+        </p><br>
+
+
+        <h2>Event Capturing</h2>
+
+        <p>
+            Opposite of bubbling.<br><br>
+
+            Event travels from parent to child.<br><br>
+
+            <b>Syntax:</b><br>
+            addEventListener("click", function(){ }, true);
+        </p><br>
+
+
+        <h2>stopPropagation()</h2>
+
+        <p>
+            stopPropagation() stops bubbling/capturing.<br><br>
+
+            <b>Syntax:</b><br>
+            event.stopPropagation();
+        </p><br>
+
+
+        <h2>Event Delegation</h2>
+
+        <p>
+            Instead of attaching listeners to many child elements,<br>
+            attach one listener to parent element.<br><br>
+
+            Uses Event Bubbling internally.<br><br>
+
+            <b>Benefits:</b><br>
+            • Better Performance<br>
+            • Less Memory Usage<br>
+            • Easier for Dynamic Elements
+        </p><br>
+
+
+        <h2>Arrow Functions with Events</h2>
+
+        <p>
+            Modern JavaScript commonly uses arrow functions.<br><br>
+
+            <b>Example:</b><br>
+            btn.addEventListener("click", () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log("Clicked");<br>
+            });
+        </p><br>
+
+
+        <h2>Multiple Event Listeners</h2>
+
+        <p>
+            Multiple listeners can be attached to same element.<br><br>
+
+            <b>Example:</b><br>
+            btn.addEventListener("click", firstFunction);<br>
+            btn.addEventListener("click", secondFunction);
+        </p><br>
+
+
+        <h2>Confusion Topics</h2>
+
+        <p>
+            <b>1. Bubbling vs Capturing</b><br>
+            Bubbling → Child to Parent<br>
+            Capturing → Parent to Child<br><br>
+
+            <b>2. target vs currentTarget</b><br>
+            target → Actual clicked element<br>
+            currentTarget → Listener owner<br><br>
+
+            <b>3. preventDefault()</b><br>
+            Stops browser default action.
+        </p><br>
+
+
+        <h2>Practice Projects</h2>
+
+        <p>
+            • Live Character Counter<br>
+            • Todo App<br>
+            • Color Changer<br>
+            • Keyboard Typing Game<br>
+            • Interactive Forms
+        </p><br>
+
+
+        <h2>Easy Memory Trick</h2>
+
+        <p>
+            Event Listener =<br><br>
+
+            "Wait for action → then run code"
+        </p><br>
+
+    </main>
+
+    <footer>
+        <hr>
+        End of Notes
+        <hr>
+    </footer>
+
+
+    <script>
+
+        // Selecting button
+        let btn = document.querySelector("button");
+
+        // Click Event
+        btn.addEventListener("click", function(){
+            console.log("Clicked");
+        });
+
+        // Double Click
+        btn.addEventListener("dblclick", function(){
+            console.log("Double Clicked");
+        });
+
+        // Keyboard Event
+        document.addEventListener("keydown", function(event){
+            console.log(event.key);
+        });
+
+        // Mouse Move
+        document.addEventListener("mousemove", function(){
+            console.log("Mouse Moving");
+        });
+
+        // Window Load
+        window.addEventListener("load", function(){
+            console.log("Page Loaded");
+        });
+
+        // Scroll Event
+        window.addEventListener("scroll", function(){
+            console.log("Scrolling");
+        });
+
+        // Arrow Function Style
+        btn.addEventListener("mouseover", () => {
+            console.log("Mouse Over");
+        });
+
+        // removeEventListener
+        function hello(){
+            console.log("Hello");
+        }
+
+        btn.addEventListener("click", hello);
+
+        btn.removeEventListener("click", hello);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2 Local Storage</title>
+    <style>
+        *{
+            background-color:black;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color: aliceblue;
+            
+        }
+        hr{
+            border: 2.5px dashed gray;
+        }
+        h1{
+            color: black;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color:rgb(24, 130, 156);
+            transition: 0.5s;
+        }
+        h1:hover{
+            background-color: aliceblue;
+            color: black;
+        }
+        p{
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <header>
+        <h1>
+            Ch D / Part II : "LOCAL STORAGE" in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <h2>What is Local Storage?</h2>
+        <p>
+            LocalStorage is used for <b>persistent data storage in the browser</b>. 
+            The data remains saved even after refreshing or closing the browser.
+        </p>
+        <br>
+
+        <h2>setItem()</h2>
+        <p>
+            Stores data as key-value pairs.<br>
+            <b>Example:</b><br>
+            localStorage.setItem("name", "Rahul");<br>
+            localStorage.setItem("age", "20");
+        </p>
+        <br>
+
+        <h2>Only Strings Allowed</h2>
+        <p>
+            LocalStorage can only store strings.<br>
+            To store objects, convert them using JSON.<br>
+            <b>Example:</b><br>
+            let user = { name: "Rahul", age: 20 };<br>
+            localStorage.setItem("user", JSON.stringify(user));
+        </p>
+        <br>
+
+        <h2>getItem()</h2>
+        <p>
+            Retrieves data based on key.<br>
+            <b>Example:</b><br>
+            let name = localStorage.getItem("name");<br>
+            console.log(name);<br><br>
+
+            let userData = JSON.parse(localStorage.getItem("user"));<br>
+            console.log(userData.name);
+        </p>
+        <br>
+
+        <h2>Other Methods</h2>
+        <p>
+            removeItem() → Removes a specific key.<br>
+            clear() → Clears all data.<br><br>
+
+            <b>Examples:</b><br>
+            localStorage.removeItem("name");<br>
+            localStorage.clear();
+        </p>
+        <br>
+
+        <h2>Important Note</h2>
+        <p>
+            Do NOT store sensitive information (like passwords).<br>
+            Data is visible in the browser’s <b>Storage Console (DevTools)</b>.
+        </p>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        let ItemDesc = {
+            itemName : 'Macbook',
+            itemCompany : 'apple',
+            itemPrice : 254300,
+            developedIn : 'UK',
+            developedOn : '2026-03-01',
+        };
+
+        console.log(ItemDesc);
+        console.log(typeof ItemDesc);
+        console.log('-------------------');
+
+        //Local Storage : ----------------------
+
+            //  setting an item in LocalStorage -->  setItem
+        
+            localStorage.setItem('ItemDescJSON_01',ItemDesc);
+            console.log(localStorage.getItem("ItemDescJSON_01"));
+            console.log('-------------------');
+
+            //  now as it doesn't store it as JSON , 
+            // so we have to covert object to JSON
+
+            let ItemDescJSON = JSON.stringify(ItemDesc);
+            console.log(ItemDescJSON);
+            console.log(typeof ItemDescJSON);
+            console.log('-------------------');
+
+            //   now again , Setting an item in LocalStorage --> setItem()
+
+            localStorage.setItem("ItemDescJSON_02",ItemDescJSON);
+
+            // Getting an item --> getItem()    [as a STRING]
+
+            console.log("Getting as String : LocalStorage : ItemDescJSON_02   -> ");
+            console.log(localStorage.getItem("ItemDescJSON_02"));
+            console.log('-------------------');
+
+            //   thus , we will get an item as , getItem()   [as a OBJECT]
+
+            let obj01 = JSON.parse(localStorage.getItem("ItemDescJSON_02"));
+            console.log(obj01);
+            console.log(typeof obj01);
+            console.log('------------------------');
+
+    </script>
+
+</body>
+</html>

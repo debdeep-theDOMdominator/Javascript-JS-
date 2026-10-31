@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Input Form Events" : Event Listener</title>
+    <style>
+        *{
+            background-color:#2b2d42; /* Space Indigo */
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:#edf2f4; /* Platinum */
+            scroll-behavior:smooth;
+        }
+
+        /* Divider */
+        hr{
+            border:2.5px dashed #8d99ae; /* Lavender Grey */
+            margin:20px 0;
+        }
+
+        /* Main Heading */
+        h1{
+            color:#edf2f4; /* Platinum */
+            text-align:center;
+            padding:15px;
+            border:2px solid #ef233c; /* Strawberry Red */
+            border-radius:20px;
+            background:linear-gradient(135deg,#d90429,#ef233c);
+            transition:0.4s ease;
+            box-shadow:0 0 18px rgba(0,0,0,0.35);
+        }
+
+        /* Hover Effect */
+        h1:hover{
+            background:linear-gradient(135deg,#ef233c,#8d99ae);
+            color:#2b2d42; /* Space Indigo */
+            transform:scale(1.01);
+        }
+
+        .btn{
+            height: 150px;
+            width: 150px;
+            background-color:bisque;
+            display: block;
+            padding: 25px ;
+            border: 2px solid white;
+            margin: 30px;
+            color: black;
+            font-size: 25px;
+            
+        }
+        .btn:hover{
+            background-color: #ef233c;
+        }
+        .DataCollectionFormDiv{
+            height: 250px;
+            width: 500px;
+            margin: 25px;
+            border: 2px dashed wheat;
+            padding: 25px;
+            font-size: 35px;
+        }
+        .DetailsBox{
+            height: 35px;
+            width: 150px;
+            border: 1px solid wheat;
+            font-size: 25px;
+            color: white;
+            text-align:center;
+        }
+        .DetailsBox:focus{
+            background-color: wheat;
+            text-align: left;
+            color: #d90429;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Ch G / Part IV : "Input Form Events" : Event Listener in JS
+        </h1>
+    </header>
+
+    <main>
+        <div class="DataCollectionFormDiv">
+
+            <form class="DataCollectionForm" method="#">
+                <label for="user_name">Name:</label>
+                <input type="text" class="DetailsBox" id="user_name" name="user_name" required>
+                <br><br>
+                <label for="user_password">Password : </label>
+                <input type="password" class="DetailsBox" id="user_password" name="user_password" required>
+                <br><br>
+                <input type="submit" class="DetailsBox" name="FormSubmit" id="FormSubmit">
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        let user_name=document.querySelector("#user_name");
+        let user_password=document.querySelector("#user_password");
+        let FormSubmit=document.querySelector("#FormSubmit");
+        let DataCollectionForm=document.querySelector(".DataCollectionForm");
+        let DetailsBox=document.querySelector(".DetailsBox");
+
+        // FOCUS : Events -
+            DetailsBox.addEventListener("focus",function(){
+                console.log(`Focus !`);
+            });
+            DetailsBox.addEventListener("blur",function(){
+                console.log(`Focus lost !`);
+            });
+
+        // INPUT : Event -
+            user_name.addEventListener("input",event => {
+                console.log(`${user_name.value}`);
+            });
+
+            // user_password.addEventListener("input",event => {
+            //     console.log(`${user_password.value}`);
+            // })
+
+        // CHANGE : Event - 
+            user_name.addEventListener("change",event => {
+                console.log(`User lost Focus on that field . Final Input was : ${user_name.value}`);
+            });
+
+        // SUBMIT : Event -
+            DataCollectionForm.addEventListener("submit",function (event) {
+
+                event.preventDefault(); // prevents page refresh
+
+                console.log("Form Submitted");
+            });
+
+
+
+    </script>
+</body>
+</html>

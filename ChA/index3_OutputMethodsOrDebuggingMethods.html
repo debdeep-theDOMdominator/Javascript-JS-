@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index2_Selectors</title>
+    <style>
+        *{
+            background-color: lightgreen;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        hr{
+            border: 1px dashed;
+        }
+        h1{
+            color: red;
+            text-align: right;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: black;
+        }
+        h1:hover{
+            background-color: #FDD726 ;
+            color: black;
+        }
+        p{
+            font-size: 20px;
+        }
+        p:hover{
+            font-weight: 900;
+        }
+        li{
+            font-size: 25px;
+        }
+        b{
+            text-decoration: underline;
+            color: darkblue;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+
+        <h1>
+            Ch 01 / Part II : Output Methods or Debugging Methods in JS
+        </h1>
+
+        <hr>
+
+        <p>
+            <b>Window Method </b> : <b><i> `alert` </i></b> is a method of the global window object. It creates a modal popup box that interrupts the user and must be dismissed to continue. 
+            While they serve different functional purposes (console vs. UI popup), they are categorized together as JavaScript debugging tricks or logging levels when used to track code execution.
+
+            <br>
+            <br>
+
+            <b>Console Methods </b> : console.log, console.warn, and console.error are static methods of the global console object. They are used to print messages to the browser's developer console. <br> 
+            <ul>
+                <li>
+                    console.log: Outputs general information or variable values.
+                </li>
+                <li>
+                    console.warn: Outputs a yellow-colored warning message, often with a warning icon.
+                </li>
+                <li>
+                    console.error: Outputs a red-colored error message, typically used for critical failures.
+                </li>
+            </ul>
+            
+            <br>
+            
+        </p>
+
+
+    </main>
+
+    <footer>
+
+
+    </footer>
+
+    <script>
+
+        alert('PERFORM THE FOLLOWING TASK IN THIS MODULE IN "CONSOLE" \n Open Console');
+        console.log('Perform the task here !');
+        console.warn(' write each and check answer . Don\'t cheat ');
+        console.error('this is an EXAMPLE of error ');
+
+
+    </script>
+</body>
+
+
+</html>

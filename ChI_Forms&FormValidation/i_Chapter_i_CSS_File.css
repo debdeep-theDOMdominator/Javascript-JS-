@@ -1,0 +1,204 @@
+/* =========================
+   Global Styling
+========================= */
+
+*{
+    background-color:#000814; /* Ink Black */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:#ffd60a; /* Gold */
+    scroll-behavior:smooth;
+    box-sizing:border-box;
+}
+
+/* =========================
+   Body
+========================= */
+
+body{
+    margin:20px;
+
+    background:linear-gradient(
+        180deg,
+        #000814,
+        #001d3d,
+        #003566
+    );
+}
+
+/* =========================
+   Divider
+========================= */
+
+hr{
+    border:2.5px dashed #ffc300; /* School Bus Yellow */
+    margin:25px 0;
+}
+
+/* =========================
+   Main Heading
+========================= */
+
+h1{
+    color:#ffd60a; /* Gold */
+    text-align:right;
+
+    padding:18px;
+
+    border:2px solid #ffc300;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        135deg,
+        #001d3d,
+        #003566,
+        #001d3d
+    );
+
+    transition:0.4s ease;
+
+    box-shadow:
+        0 0 18px rgba(0,0,0,0.5),
+        0 0 10px rgba(255,195,0,0.25);
+}
+
+/* Hover Effect */
+
+h1:hover{
+    transform:scale(1.015);
+
+    background:linear-gradient(
+        135deg,
+        #ffc300,
+        #ffd60a,
+        #ffc300
+    );
+
+    color:#000814;
+}
+
+/* =========================
+   Section Headings
+========================= */
+
+h2{
+    color:#ffc300;
+
+    font-size:36px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    text-shadow:
+        0 0 10px rgba(255,214,10,0.4);
+}
+
+/* =========================
+   Paragraphs
+========================= */
+
+p{
+    font-size:22px;
+
+    line-height:1.9;
+
+    padding:20px;
+
+    margin:20px 0;
+
+    border-left:7px solid #ffc300;
+
+    border-radius:14px;
+
+    background-color:#003566; /* Oxford Navy */
+
+    color:#ffd60a;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,0.4);
+
+    transition:0.35s ease;
+}
+
+/* Hover */
+
+p:hover{
+    transform:translateY(-4px);
+
+    background-color:#001d3d;
+
+    border-left:7px solid #ffd60a;
+}
+
+/* =========================
+   Bold Text
+========================= */
+
+b{
+    color:#ffc300;
+
+    background:none;
+}
+
+/* =========================
+   Code-like Text
+========================= */
+
+code{
+    color:#ffd60a;
+
+    background-color:#000814;
+
+    padding:3px 7px;
+
+    border-radius:6px;
+
+    border:1px solid #ffc300;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:15px;
+
+    color:#ffc300;
+
+    font-size:18px;
+}
+
+/* =========================
+   Scrollbar
+========================= */
+
+::-webkit-scrollbar{
+    width:12px;
+}
+
+::-webkit-scrollbar-track{
+    background:#000814;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ffc300;
+
+    border-radius:12px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#ffd60a;
+}
+
+/* =========================
+   Selection Highlight
+========================= */
+
+::selection{
+    background:#ffc300;
+
+    color:#000814;
+}

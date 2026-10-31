@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./L_ChapterL_CSS_File.css">
+    <title>L2 Callback Practice</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Ch L / Part II : " Callback : Practice " in JS
+        </h1>
+    </header>
+
+    <hr>
+
+    <main>
+        
+    </main>
+
+
+
+    
+    <script>
+
+
+        function ProfileFetch(username, cb_fn) {
+            console.log("Fetching the profile details .....");
+
+            setTimeout(function () {
+                cb_fn({
+                    _id: "HBI/2026-27/15933-kol",
+                    username,
+                    Name: "Debdeep",
+                    age: 22,
+                });
+            }, 2000);
+        }
+
+        function PostsFetch_fromProfile(id, cb_posts_data) {
+            console.log("fetching all posts .....");
+
+            setTimeout(() => {
+                cb_posts_data({
+                    _id: id,
+                    posts: [
+                        "hey",
+                        "hello",
+                        "Do you know me ?",
+                    ],
+                });
+            }, 3000);
+        }
+
+        ProfileFetch("dsg", function (profileData) {
+
+            console.log(profileData);
+
+            PostsFetch_fromProfile(profileData._id, function (postsData) {
+
+                console.log(postsData);
+
+            });
+
+        });
+
+
+
+        /* 
+            Visual Flow :
+
+                Fetching the profile details .....
+                        │
+                        ▼
+
+                (after 2 sec)
+
+                        │
+                        ▼
+                {
+                _id: "HBI/2026-27/15933-kol",
+                username: "dsg",
+                Name: "Debdeep",
+                age: 22
+                }
+                        │
+                        ▼
+
+                fetching all posts .....
+
+                        │
+                        ▼
+                (after 3 sec)
+                        │
+                        ▼
+                {
+                _id: "HBI/2026-27/15933-kol",
+                posts: ["hey", "hello", "Do you know me ?"]
+                }
+        */
+
+    </script>
+
+</body>
+</html>
